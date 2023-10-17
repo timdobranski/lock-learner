@@ -9,7 +9,8 @@
 
 .lock {
   position: absolute;
-  top: 35%;
+  top: 15%;
+  border: solid red 4px;
 }
 
 #lockContainer{
