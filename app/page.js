@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import lockFull from '../public/lock-full-centered.png';
 import lockFace from '../public/lock-face-centered.png';
-import logo from '../public/parkway.png'
+import logo from '../public/titledLogo.png'
 import Welcome from '../components/Welcome/Welcome';
 import Reset from '../components/Reset/Reset';
 
@@ -13,15 +13,22 @@ export default function Home() {
   const [rotation, setRotation] = useState(0);
   const [lastPosition, setLastPosition] = useState(null);
   const lockFaceRef = useRef(null);
+  const [currentLockNum, setCurrentLockNum] = useState(0);
 
   const [step, setStep] = useState(-1);
   const [combo, setCombo] = useState([0, 0, 0]);
 
-  const logoStyles = {
-    marginTop: '1rem',
 
-  }
+  useEffect(() => {
+    // Normalize the rotation to be between 0 and 360
+    const effectiveRotation = (rotation + 4.5) % 360; // +4.5 for the offset
+    const newSectionNumber = Math.floor(effectiveRotation / 9);
+    setCurrentLockNum(newSectionNumber);
+}, [rotation]);
 
+  useEffect(() => {
+    console.log('currentLockNum: ', currentLockNum);
+  }, [currentLockNum])
 
   useEffect(() => {
     console.log('combo: ', combo);
@@ -85,8 +92,8 @@ export default function Home() {
       const initialAngle = computeAngle({ clientX: lastPosition.x, clientY: lastPosition.y });
       const currentAngle = computeAngle(event);
       const angleDelta = currentAngle - initialAngle;
-      setRotation((prev) => prev + angleDelta);
-      setLastPosition({ x: event.clientX, y: event.clientY });
+      setRotation(prev => (prev + angleDelta + 360) % 360);
+            setLastPosition({ x: event.clientX, y: event.clientY });
     }
   };
   const handleTouchMove = () => {
@@ -105,10 +112,16 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.logo}>
-        <Image src={logo} fill='true' alt="Parkway Logo" style={logoStyles}/>
+        <Image src={logo} fill='true' alt="Parkway Logo" />
       </div>
       <h1 className={styles.title}>LOCK LEARNER</h1>
-      <h2 className={styles.schoolTitle}>Parkway Academy</h2>
+      {step >= 0 ?
+      <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(-1)}}>
+        <h2>COMBO</h2>
+        <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
+      </div>
+        : null
+        }
 
       {step === -1 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} /> : null}
       {step === 0 ? <Reset /> : null}
@@ -119,13 +132,6 @@ export default function Home() {
       {step === 5 ? <WrongWay /> : null}
       {step === 6 ? <PassedNum /> : null} */}
 
-      {step >= 0 ?
-      <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(-1)}}>
-        <h2>COMBO</h2>
-        <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
-      </div>
-        : null
-        }
 
       <div className={styles.lock} id={styles.feedbackRing}></div>
       <div className={styles.lock} id={styles.lockContainer}>
