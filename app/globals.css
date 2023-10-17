@@ -3,9 +3,18 @@
   src: url('../public/fonts/FUTRFW.TTF');
   font-weight: normal;
   font-style: normal;
+
 }
 
 #app {
-  background: linear-gradient(to bottom, #f39a9a, #54ccff);
+  background: linear-gradient(to bottom, #fafafa, #3dc5ff);
   font-family: Future;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

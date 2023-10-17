@@ -1,16 +1,32 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 import lockFull from '../public/lock-full-centered.png';
 import lockFace from '../public/lock-face-centered.png';
 import logo from '../public/parkway.png'
+import Welcome from '../components/Welcome/Welcome';
+import Reset from '../components/Reset/Reset';
 
 export default function Home() {
   const [rotation, setRotation] = useState(0);
   const [lastPosition, setLastPosition] = useState(null);
   const lockFaceRef = useRef(null);
+
+  const [step, setStep] = useState(-1);
+  const [combo, setCombo] = useState([0, 0, 0]);
+
+  const logoStyles = {
+    marginTop: '1rem',
+  }
+
+
+  useEffect(() => {
+    console.log('combo: ', combo);
+  }, [combo])
+
+
 
   const offsetX = 0;
   const offsetY = 0;
@@ -59,10 +75,26 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Image src={logo} height={100} alt="Parkway Logo" />
+      <Image src={logo} height={100} alt="Parkway Logo" style={logoStyles}/>
       <h1 className={styles.title}>LOCK LEARNER</h1>
       <h2 className={styles.schoolTitle}>Parkway Academy</h2>
 
+      {step === -1 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} /> : null}
+      {step === 0 ? <Reset /> : null}
+      {/* {step === 1 ? <Num1 /> : null}
+      {step === 2 ? <Num2 /> : null}
+      {step === 3 ? <Num3 /> : null}
+      {step === 4 ? <Success /> : null}
+      {step === 5 ? <WrongWay /> : null}
+      {step === 6 ? <PassedNum /> : null} */}
+
+      {step >= 0 ?
+      <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(-1)}}>
+        {/* <h2>COMBO</h2> */}
+        <p>{`Combo: ${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
+      </div>
+        : null
+        }
 
       <div className={styles.lock} id={styles.feedbackRing}></div>
       <div className={styles.lock} id={styles.lockContainer}>
