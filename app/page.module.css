@@ -8,14 +8,20 @@
   overflow: hidden;
 }
 .title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   position: relative;
   margin: 1rem 0 0 0;
 }
 .schoolTitle {
   margin: 0;
+  font-size: 1.25rem;
 }
+.logo {
+  position: relative;
+  height: 80px;
+  width: 75px;
 
+}
 .lock {
   position: fixed;
   bottom: -220px;

@@ -19,6 +19,7 @@ export default function Home() {
 
   const logoStyles = {
     marginTop: '1rem',
+
   }
 
 
@@ -103,7 +104,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Image src={logo} height={100} alt="Parkway Logo" style={logoStyles}/>
+      <div className={styles.logo}>
+        <Image src={logo} fill='true' alt="Parkway Logo" style={logoStyles}/>
+      </div>
       <h1 className={styles.title}>LOCK LEARNER</h1>
       <h2 className={styles.schoolTitle}>Parkway Academy</h2>
 

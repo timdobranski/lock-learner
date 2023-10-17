@@ -1,6 +1,7 @@
 .container {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  max-height: 200px;
 }
 #formContainer{
   display: flex;
