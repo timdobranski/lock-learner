@@ -18,8 +18,6 @@ export default function Welcome({ setStep, combo, setCombo }) {
 
   return (
     <div className={styles.container}>
-      <h2>Welcome, PE Students!</h2>
-      <p>To practice opening your lock, enter your 3 digit combination:</p>
       <form onSubmit={handleSubmit} id={styles.formContainer}>
       <div id={styles.inputContainer}>
         <div>
@@ -55,6 +53,8 @@ export default function Welcome({ setStep, combo, setCombo }) {
         </div>
         <button type="submit" id={styles.comboSubmitButton}>SET COMBO</button>
       </form>
+      <h2>Welcome, PE Students!</h2>
+      <p>To practice opening your lock, enter your 3 digit combination:</p>
     </div>
   );
 }
