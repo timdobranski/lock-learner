@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './Num2.module.css'
 
 export default function Num2({ setStep, combo, setCombo, currentNum }) {

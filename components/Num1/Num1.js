@@ -19,7 +19,7 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
     }
 
     // If num reached & reset true
-    if (resetComplete && currentNum === parseInt(combo[0])) {
+    if (currentNum === parseInt(combo[0])) {
       setStep(prevStep => prevStep + 1);
     }
 

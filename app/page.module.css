@@ -33,7 +33,7 @@
 }
 
 #lockContainer{
-  border: solid red 4px;
+  /* border: solid red 4px; */
 }
 #lockFaceContainer{
   z-index: 1;
@@ -41,9 +41,9 @@
 }
 #comboContainer {
   position: fixed;
-  top: 0;
-  right: 0;
-  margin: 1rem;
+  top: 50%;
+  margin: 0 auto;
+
   background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
   padding: .25rem 1rem .25rem 1rem;
   border-radius: 15px;

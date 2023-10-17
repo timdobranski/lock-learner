@@ -18,7 +18,7 @@ export default function Home() {
   const [currentLockNum, setCurrentLockNum] = useState(0);
 
   const [step, setStep] = useState(0);
-  const [combo, setCombo] = useState([0, 0, 0]);
+  const [combo, setCombo] = useState(['', '', '']);
 
 
   useEffect(() => {
