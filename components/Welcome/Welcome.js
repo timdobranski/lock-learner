@@ -54,7 +54,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
         <button type="submit" id={styles.comboSubmitButton}>SET COMBO</button>
       </form>
       <h2>Welcome, PE Students!</h2>
-      <p>To practice opening your lock, enter your 3 digit combination:</p>
+      <p>To practice opening your lock, enter your 3 digit combination above</p>
     </div>
   );
 }

@@ -126,7 +126,7 @@ export default function Home() {
         <Image src={logo} fill='true' alt="Parkway Logo" />
       </div>
       <h1 className={styles.title}>LOCK LEARNER</h1>
-      {step >= 0 ?
+      {step > 0 ?
       <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(-1)}}>
         <h2>COMBO</h2>
         <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
@@ -136,7 +136,7 @@ export default function Home() {
 
       {step === 0 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} currentNum={currentLockNum} /> : null}
       {step === 1 ? <Num1 combo={combo} setStep={setStep} currentNum={currentLockNum}/> : null}
-      {step === 2 ? <Num2 /> : null}
+      {step === 2 ? <Num2 combo={combo} currentNum={currentLockNum} setStep={setStep} /> : null}
       {/* {step === 3 ? <Num3 /> : null}
       {step === 4 ? <Success /> : null} */}
       {step === 5 ? <WrongWay setStep={setStep}/> : null}
