@@ -24,6 +24,7 @@ export default function Home() {
   };
 
   const handleMouseDown = (event) => {
+    event.preventDefault();
     setLastPosition({ x: event.clientX, y: event.clientY });
   };
 
@@ -46,7 +47,7 @@ export default function Home() {
       <h1>LOCK LEARNER</h1>
       <h2>Parkway Academy</h2>
       <div className={styles.lock} id={styles.lockContainer}>
-        <Image src={lockFull} height={300} alt="Lock" />
+        <Image src={lockFull} height={600} alt="Lock" />
       </div>
       <div
         className={styles.lock}
@@ -58,7 +59,7 @@ export default function Home() {
         onMouseLeave={handleMouseUp}
         style={{ transform: `rotate(${rotation}deg)` }}
       >
-        <Image src={lockFace} height={300} alt="Lock" />
+        <Image src={lockFace} height={600} alt="Lock" />
       </div>
     </main>
   );
