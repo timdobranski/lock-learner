@@ -10,7 +10,7 @@
 .title {
   font-size: 1.75rem;
   position: relative;
-  margin: 1rem 0 0 0;
+  margin: 0;
 }
 .schoolTitle {
   margin: 0;
@@ -19,7 +19,9 @@
 .logo {
   position: relative;
   height: 25vw;
-  width: 100vw;;
+  width: 100vw;
+  max-height: 150px;
+  max-width: 600px;
 
 }
 .lock {
@@ -31,7 +33,7 @@
 }
 
 #lockContainer{
-
+  border: solid red 4px;
 }
 #lockFaceContainer{
   z-index: 1;

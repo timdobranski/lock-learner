@@ -7,7 +7,9 @@ import lockFull from '../public/lock-full-centered.png';
 import lockFace from '../public/lock-face-centered.png';
 import logo from '../public/titledLogo.png'
 import Welcome from '../components/Welcome/Welcome';
-import Reset from '../components/Reset/Reset';
+import Num1 from '../components/Num1/Num1';
+import Num2 from '../components/Num2/Num2';
+import WrongWay from '../components/WrongWay/WrongWay'
 
 export default function Home() {
   const [rotation, setRotation] = useState(0);
@@ -15,16 +17,25 @@ export default function Home() {
   const lockFaceRef = useRef(null);
   const [currentLockNum, setCurrentLockNum] = useState(0);
 
-  const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(0);
   const [combo, setCombo] = useState([0, 0, 0]);
 
 
   useEffect(() => {
     // Normalize the rotation to be between 0 and 360
-    const effectiveRotation = (rotation + 4.5) % 360; // +4.5 for the offset
-    const newSectionNumber = Math.floor(effectiveRotation / 9);
+    const effectiveRotation = (rotation - 4.5) % 360; // Note the parentheses
+
+    // If the effectiveRotation is negative (due to the modulo operation), add 360 to normalize
+    const normalizedRotation = effectiveRotation < 0 ? effectiveRotation + 360 : effectiveRotation;
+
+    const reversedRotation = 360 - normalizedRotation;
+    const newSectionNumber = Math.floor(reversedRotation / 9) % 40; // Using % 40 to ensure it wraps around to 0 when it hits 40
     setCurrentLockNum(newSectionNumber);
 }, [rotation]);
+
+  useEffect (() => {
+    console.log('step: ', step);
+  }, [step])
 
   useEffect(() => {
     console.log('currentLockNum: ', currentLockNum);
@@ -123,14 +134,13 @@ export default function Home() {
         : null
         }
 
-      {step === -1 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} /> : null}
-      {step === 0 ? <Reset /> : null}
-      {/* {step === 1 ? <Num1 /> : null}
+      {step === 0 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} currentNum={currentLockNum} /> : null}
+      {step === 1 ? <Num1 combo={combo} setStep={setStep} currentNum={currentLockNum}/> : null}
       {step === 2 ? <Num2 /> : null}
-      {step === 3 ? <Num3 /> : null}
-      {step === 4 ? <Success /> : null}
-      {step === 5 ? <WrongWay /> : null}
-      {step === 6 ? <PassedNum /> : null} */}
+      {/* {step === 3 ? <Num3 /> : null}
+      {step === 4 ? <Success /> : null} */}
+      {step === 5 ? <WrongWay setStep={setStep}/> : null}
+      {/* {step === 6 ? <PassedNum /> : null}  */}
 
 
       <div className={styles.lock} id={styles.feedbackRing}></div>

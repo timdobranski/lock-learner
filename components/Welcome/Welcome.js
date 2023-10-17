@@ -20,8 +20,8 @@ export default function Welcome({ setStep, combo, setCombo }) {
     <div className={styles.container}>
       <h2>Welcome, PE Students!</h2>
       <p>To practice opening your lock, enter your 3 digit combination:</p>
-
       <form onSubmit={handleSubmit} id={styles.formContainer}>
+      <div id={styles.inputContainer}>
         <div>
           <input
             type="number"
@@ -51,6 +51,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
             maxLength="1"
             className={styles.comboInput}
           />
+        </div>
         </div>
         <button type="submit" id={styles.comboSubmitButton}>SET COMBO</button>
       </form>
