@@ -26,7 +26,22 @@ export default function Home() {
     console.log('combo: ', combo);
   }, [combo])
 
+  useEffect(() => {
+    const lockFaceElem = lockFaceRef.current;
 
+    const touchStartListener = (event) => handleTouchStart(event);
+    const touchMoveListener = (event) => handleTouchMove(event);
+
+    // Attach the listeners
+    lockFaceElem.addEventListener('touchstart', touchStartListener, { passive: false });
+    lockFaceElem.addEventListener('touchmove', touchMoveListener, { passive: false });
+
+    // Cleanup
+    return () => {
+        lockFaceElem.removeEventListener('touchstart', touchStartListener);
+        lockFaceElem.removeEventListener('touchmove', touchMoveListener);
+    };
+}, []);
 
   const offsetX = 0;
   const offsetY = 0;
@@ -41,7 +56,7 @@ export default function Home() {
   };
 
   const handleMouseDown = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const rect = lockFaceRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2 + offsetX;
     const centerY = rect.top + rect.height / 2 + offsetY;
@@ -58,6 +73,11 @@ export default function Home() {
       setLastPosition({ x: event.clientX, y: event.clientY });
     }
   };
+  const handleTouchStart = (event) => {
+    event.preventDefault();
+    const touch = event.touches[0]; // Get the first touch
+    handleMouseDown(touch); // Reuse the mouse down logic
+  };
 
   const handleMouseMove = (event) => {
     if (lastPosition) {
@@ -68,9 +88,17 @@ export default function Home() {
       setLastPosition({ x: event.clientX, y: event.clientY });
     }
   };
+  const handleTouchMove = () => {
+    // event.preventDefault();
+    const touch = event.touches[0]; // Get the first touch
+    handleMouseMove(touch); // Reuse the mouse move logic
+  };
 
   const handleMouseUp = () => {
     setLastPosition(null);
+  };
+  const handleTouchEnd = () => {
+  handleMouseUp(); // Reuse the mouse up logic
   };
 
   return (
@@ -90,8 +118,8 @@ export default function Home() {
 
       {step >= 0 ?
       <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(-1)}}>
-        {/* <h2>COMBO</h2> */}
-        <p>{`Combo: ${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
+        <h2>COMBO</h2>
+        <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
       </div>
         : null
         }
@@ -108,6 +136,9 @@ export default function Home() {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         style={{ transform: `rotate(${rotation}deg)` }}
       >
         <Image src={lockFace} height={600} alt="Lock" />

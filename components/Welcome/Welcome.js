@@ -18,7 +18,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
 
   return (
     <div className={styles.container}>
-      <h2>Welcome!</h2>
+      <h2>Welcome, PE Students!</h2>
       <p>To practice opening your lock, enter your 3 digit combination:</p>
 
       <form onSubmit={handleSubmit} id={styles.formContainer}>

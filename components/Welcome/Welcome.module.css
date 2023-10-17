@@ -1,11 +1,12 @@
 .container {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 2rem;
 }
 #formContainer{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;;
   width: 100vw;
 }
 
@@ -17,6 +18,7 @@
   overflow: hidden;
   text-align: center;
   font-size: 2rem;
+  margin: 0 1rem 0 1rem;
 }
 
 
@@ -24,7 +26,7 @@
 #comboSubmitButton {
   position: absolute;
   top: 50%;
-  width: 18rem;;
+  width: 18rem;
   border: solid;
   border: solid rgb(136, 136, 136) 1px;
   border-radius: 15px;

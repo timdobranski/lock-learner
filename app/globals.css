@@ -7,10 +7,11 @@
 }
 
 #app {
-  background: linear-gradient(to bottom, #fafafa, #3dc5ff);
+  background: linear-gradient(to bottom, #fafafa, #53afe9);
   font-family: Future;
   text-align: center;
   letter-spacing: 0;
+  overflow: hidden;
 }
 
 input::-webkit-outer-spin-button,

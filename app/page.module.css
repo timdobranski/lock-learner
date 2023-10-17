@@ -5,6 +5,7 @@
   align-items: center;
   /* padding: 2rem; */
   min-height: 100vh;
+  overflow: hidden;
 }
 .title {
   font-size: 1.5rem;
@@ -17,7 +18,7 @@
 
 .lock {
   position: fixed;
-  bottom: -200px;
+  bottom: -220px;
   margin-bottom: 2rem;
   overflow: hidden;
   border-radius: 50%;
@@ -35,7 +36,7 @@
   top: 0;
   right: 0;
   margin: 1rem;
-  background-color: white;
+  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
   padding: .25rem 1rem .25rem 1rem;
   border-radius: 15px;
 }
@@ -51,6 +52,7 @@
 #comboContainer h2 {
   text-decoration: underline;
   font-weight: 100;
+  font-size: 1rem;
 }
 
 #comboContainer p {
