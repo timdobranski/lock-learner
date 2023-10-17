@@ -40,9 +40,10 @@
 
 }
 #comboContainer {
-  position: fixed;
+  position: relative;
   top: 50%;
   margin: 0 auto;
+  margin-top: 1rem;
 
   background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
   padding: .25rem 1rem .25rem 1rem;
