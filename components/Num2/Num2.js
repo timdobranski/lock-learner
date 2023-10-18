@@ -10,7 +10,10 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
 
   useEffect(() => {
     const prevNum = prevNumRef.current;
-    if (prevNum !== undefined && currentNum < prevNum &&  !(prevNum === 0 && currentNum === 39)) {
+    console.log('currentNum: ', currentNum);
+    console.log('previous num: ', prevNum)
+    // if (prevNum !== undefined && currentNum < prevNum &&  !(prevNum === 39 && currentNum === 0)) {
+      if (currentNum < prevNum &&  !(prevNum === 39 && currentNum === 0)) {
       // Trigger the WrongWay component
       setStep(5)
     }
@@ -19,6 +22,7 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
     if (currentNum === parseInt(combo[1])) {
       setTimesHitNumber(prevNum => prevNum + 1)
     }
+    prevNumRef.current = currentNum;
   }, [currentNum, combo])
 
   useEffect(() => {

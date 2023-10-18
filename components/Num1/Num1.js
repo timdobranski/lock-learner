@@ -11,6 +11,7 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
 
   useEffect(() => {
     const prevNum = prevNumRef.current;
+    console.log('previous number: ', prevNum)
 
     // Check if currentNum has decreased
     if (prevNum !== undefined && currentNum > prevNum &&  !(prevNum === 0 && currentNum === 39)) {
