@@ -138,7 +138,7 @@ export default function Home() {
       </div>
       <h1 className={styles.title}>LOCK LEARNER</h1>
       {step > 0 ?
-      <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(-1)}}>
+      <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(0)}}>
         <h2>COMBO</h2>
         <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
       </div>

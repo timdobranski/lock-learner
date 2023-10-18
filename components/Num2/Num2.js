@@ -1,14 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './Num2.module.css'
+
 
 export default function Num2({ setStep, combo, setCombo, currentNum }) {
   const [ timesHitNumber, setTimesHitNumber ] = useState(0);
+  const prevNumRef = useRef();
 
   useEffect(() => {
-    console.log('currentNum: ', currentNum)
-    console.log('combo[1]: ', combo[1])
+    const prevNum = prevNumRef.current;
+    if (prevNum !== undefined && currentNum < prevNum &&  !(prevNum === 0 && currentNum === 39)) {
+      // Trigger the WrongWay component
+      setStep(5)
+    }
+
 
     if (currentNum === parseInt(combo[1])) {
       setTimesHitNumber(prevNum => prevNum + 1)
@@ -27,9 +33,11 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
       <h2>Step 2: 2nd Number</h2>
       <p>{`Now you'll turn the other way, BUT...there's a catch. You'll need to pass your 2nd number and come to it again.
       So turn the lock to the left until you reach ${combo[1]}`}</p>
-
-      <p>{`Turn left to ${combo[1]} twice`}</p>
-      <p>{`Completed: ${timesHitNumber} / 2 times`}</p>
+      <div id={styles.stepsContainer}>
+        <p>{`1. Turn left to ${combo[1]} twice`}</p>
+      </div>
+        <p>{`Times Completed: ${timesHitNumber} / 2`}</p>
     </div>
   )
 }
+
