@@ -2,17 +2,22 @@ import styles from './Welcome.module.css'
 
 export default function Welcome({ setStep, combo, setCombo }) {
 
+  const isValidComboValue = (value) => {
+    const num = parseInt(value, 10);
+    return !isNaN(num) && num >= 0 && num <= 39;
+  };
+
   const handleInputChange = (index, value) => {
-    // Create a new combo array based on the existing combo
-    const newCombo = [...combo];
-    newCombo[index] = value;
-    setCombo(newCombo);
+    if (isValidComboValue(value) || value === "") { // Allow empty value for backspacing
+      // Create a new combo array based on the existing combo
+      const newCombo = [...combo];
+      newCombo[index] = value;
+      setCombo(newCombo);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // No need to set combo again here, as it's directly updated by handleInputChange.
-    // However, if you want to perform any validation or additional operations on combo, you can do so here.
     setStep(prevStep => prevStep + 1);
   };
 
@@ -53,7 +58,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
         </div>
         <button type="submit" id={styles.comboSubmitButton}>SET COMBO</button>
       </form>
-      <h2>Welcome, PE Students!</h2>
+      <h2 id={styles.welcomeHeader}>Welcome, PE Students!</h2>
       <p>To practice opening your lock, enter your 3 digit combination above</p>
     </div>
   );

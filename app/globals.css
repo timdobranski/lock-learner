@@ -8,6 +8,7 @@
 
 #app {
   background: linear-gradient(to bottom, #fafafa, #53afe9);
+  /* background: linear-gradient(to bottom, #53afe9, #fafafa); */
   font-family: Future;
   text-align: center;
   letter-spacing: 0;

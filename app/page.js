@@ -9,7 +9,9 @@ import logo from '../public/titledLogo.png'
 import Welcome from '../components/Welcome/Welcome';
 import Num1 from '../components/Num1/Num1';
 import Num2 from '../components/Num2/Num2';
+import Num3 from '../components/Num3/Num3';
 import WrongWay from '../components/WrongWay/WrongWay'
+import Success from '../components/Success/Success';
 
 export default function Home() {
   const [rotation, setRotation] = useState(0);
@@ -20,6 +22,9 @@ export default function Home() {
   const [step, setStep] = useState(0);
   const [combo, setCombo] = useState(['', '', '']);
 
+  const lockReset = () => {
+    setRotation(0);
+  }
 
   useEffect(() => {
     // Normalize the rotation to be between 0 and 360
@@ -143,8 +148,8 @@ export default function Home() {
       {step === 0 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} currentNum={currentLockNum} /> : null}
       {step === 1 ? <Num1 combo={combo} setStep={setStep} currentNum={currentLockNum}/> : null}
       {step === 2 ? <Num2 combo={combo} currentNum={currentLockNum} setStep={setStep} /> : null}
-      {/* {step === 3 ? <Num3 /> : null}
-      {step === 4 ? <Success /> : null} */}
+      {step === 3 ? <Num3 combo={combo} setStep={setStep} currentNum={currentLockNum} /> : null}
+      {step === 4 ? <Success setStep={setStep}/> : null}
       {step === 5 ? <WrongWay setStep={setStep}/> : null}
       {/* {step === 6 ? <PassedNum /> : null}  */}
 
