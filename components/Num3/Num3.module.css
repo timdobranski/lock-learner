@@ -2,4 +2,11 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 50vw;
   min-width: 350px;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgb(0, 0, 0));
+  position: relative;
+  z-index: 2;
+  margin: 2rem;
+  border-radius: 15px;
+  color: white;
+  padding: 1rem;
 }
