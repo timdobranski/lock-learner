@@ -75,7 +75,9 @@ export default function Home() {
   };
 
   const handleMouseDown = (event) => {
-    // event.preventDefault();
+    if (event.type === 'mousedown') {
+      event.preventDefault();
+  }
     const rect = lockFaceRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2 + offsetX;
     const centerY = rect.top + rect.height / 2 + offsetY;
@@ -99,6 +101,10 @@ export default function Home() {
   };
 
   const handleMouseMove = (event) => {
+    if (event.type === 'mousemove') {
+      event.preventDefault();
+  }
+
     if (lastPosition) {
       const initialAngle = computeAngle({ clientX: lastPosition.x, clientY: lastPosition.y });
       const currentAngle = computeAngle(event);
