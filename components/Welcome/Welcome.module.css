@@ -3,6 +3,13 @@
   margin-top: 1rem;
   max-height: 200px;
 }
+.title {
+  font-size: 1.75rem;
+
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
 #formContainer{
   width: 100vw;
 }
@@ -46,5 +53,25 @@
   font-family: Future;
 }
 #welcomeHeader {
+
+}
+#resetContainer {
+  font-family: GeoSansLight;
+  width: 80vw;
+  min-width: 250px;
+  max-width: 600px;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgb(0, 0, 0));
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
   margin-top: 2rem;
+  height: auto;
+  border-radius: 15px;
+  color: white;
+  padding: 1rem;
+
+}
+#resetContainer p {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
 }

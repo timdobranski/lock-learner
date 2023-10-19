@@ -7,24 +7,7 @@
   min-height: 100vh;
   overflow: hidden;
 }
-.title {
-  font-size: 1.75rem;
-  position: relative;
-  margin-top: -20px;;
-  padding: 0;
-}
-.schoolTitle {
-  margin: 0;
-  font-size: 1.25rem;
-}
-.logo {
-  position: relative;
-  height: 25vw;
-  width: 100vw;
-  max-height: 150px;
-  max-width: 600px;
 
-}
 .lock {
   position: fixed;
   bottom: -220px;

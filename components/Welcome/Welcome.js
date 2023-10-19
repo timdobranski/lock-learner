@@ -24,7 +24,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
   };
 
   return (
-    <div>
+    <div >
       <div className={styles.logo}>
         <Image src={logo} fill='true' alt="Parkway Logo" />
       </div>
@@ -67,8 +67,10 @@ export default function Welcome({ setStep, combo, setCombo }) {
         </div>
         <button type="submit" id={styles.comboSubmitButton}>SET COMBO</button>
       </form>
-      <h2 id={styles.welcomeHeader}>Welcome, PE Students!</h2>
-      <p>To practice opening your lock, enter your 3 digit combination above</p>
+      <div id={styles.resetContainer}>
+        <h2 id={styles.welcomeHeader}>Welcome, PE Students!</h2>
+        <p>To practice opening your lock, enter your 3 digit combination above</p>
+      </div>
     </div>
     </div>
   );
