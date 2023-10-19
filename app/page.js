@@ -152,7 +152,9 @@ export default function Home() {
       {/* {step === 6 ? <PassedNum /> : null}  */}
 
 
-      <div className={styles.lock} id={styles.feedbackRing}></div>
+
+      {step !== 0 ?
+      <>
       <div className={styles.lock} id={step === 4 ? styles.lockBarOpen : null}>
         <Image src={lockBar} height={600} alt="Lock" />
       </div>
@@ -174,6 +176,7 @@ export default function Home() {
       >
         <Image src={lockFace} height={600} alt="Lock" />
       </div>
+      </> : null}
     </main>
   );
 }
