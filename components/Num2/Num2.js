@@ -33,6 +33,7 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
     }
     console.log('new timeshitnumber: ', timesHitNumber);
     if (timesHitNumber === 2) {
+      setTimesHitNumber(0);
       setStep(prevStep => prevStep + 1)
     }
   }, [timesHitNumber, setStep])
