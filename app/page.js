@@ -156,14 +156,14 @@ export default function Home() {
 
 
 
-      <div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={step === 5 ? styles.lockBarOpen : null}>
+      <div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={step === 5 ? styles.lockBarOpen : null}>
     <Image src={lockBar} height={600} alt="Lock" />
 </div>
-<div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={styles.lockContainer}>
+<div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={styles.lockContainer}>
     <Image src={lockFull} height={600} alt="Lock" />
 </div>
 <div
-    className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`}
+    className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`}
     id={styles.lockFaceContainer}
     ref={lockFaceRef}
     onMouseDown={step !== 5 ? handleMouseDown : null}
