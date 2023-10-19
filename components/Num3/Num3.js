@@ -11,11 +11,15 @@ export default function Num3({ setStep, combo, setCombo, currentNum }) {
   useEffect(() => {
     const prevNum = prevNumRef.current;
 
-    // Check if currentNum has decreased
-    if (prevNum !== undefined && currentNum > prevNum &&  !(prevNum === 0 && currentNum === 39)) {
-      // Do something if currentNum has decreased
-      console.log('inside true condition')
-      setStep(5)
+    // Check if student passed Num1
+    if (currentNum > prevNum &&  !(prevNum === 39 && currentNum === 0) && prevNum === parseInt(combo[1])) {
+      // Trigger the PassedNum component
+      setStep(7)
+    }
+    // Check if student has turned the wrong way
+      if (currentNum > prevNum &&  !(prevNum === 39 && currentNum === 0) && prevNum !== parseInt(combo[1])) {
+      // Trigger the WrongWay component
+      setStep(6)
     }
 
     // If num reached & reset true

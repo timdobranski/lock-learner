@@ -1,0 +1,21 @@
+#wrongWayContainer {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 50vw;
+  min-width: 350px;
+  background: rgba(0, 0, 0, .7);
+  position: relative;
+  z-index: 2;
+  margin: 2rem;
+  border-radius: 15px;
+  color: white;
+  padding: 1rem;
+}
+
+#tryAgainButton {
+  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
+  color: black;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+
+}

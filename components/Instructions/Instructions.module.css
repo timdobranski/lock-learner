@@ -1,0 +1,34 @@
+#resetContainer {
+  font-family: GeoSansLight;
+  width: 80vw;
+  min-width: 250px;
+  max-width: 600px;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgb(0, 0, 0));
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: 2rem;
+  height: auto;
+  border-radius: 15px;
+  color: white;
+  padding: 1rem;
+}
+#resetContainer h2 {
+  margin-top: 0;
+}
+#resetContainer p {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+#resetContainer button {
+  width: 18rem;
+  border: solid;
+  border: solid rgb(136, 136, 136) 1px;
+  border-radius: 15px;
+  padding: .5rem;
+  background-color: rgb(0, 71, 142);
+  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
+  /* color: white; */
+  font-size: 1.5rem;
+  font-family: Future;
+}

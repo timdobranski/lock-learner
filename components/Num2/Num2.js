@@ -6,16 +6,20 @@ import styles from './Num2.module.css'
 
 export default function Num2({ setStep, combo, setCombo, currentNum }) {
   const [ timesHitNumber, setTimesHitNumber ] = useState(0);
-  const prevNumRef = useRef();
+  const prevNumRef = useRef(combo[0]);
 
   useEffect(() => {
     const prevNum = prevNumRef.current;
-    console.log('currentNum: ', currentNum);
-    console.log('previous num: ', prevNum)
-    // if (prevNum !== undefined && currentNum < prevNum &&  !(prevNum === 39 && currentNum === 0)) {
-      if (currentNum < prevNum &&  !(prevNum === 39 && currentNum === 0)) {
+
+    // Check if student passed Num1
+    if (currentNum < prevNum &&  !(prevNum === 39 && currentNum === 0) && prevNum === parseInt(combo[0])) {
+      // Trigger the PassedNum component
+      setStep(7)
+    }
+    // Check if student has turned the wrong way
+      if (currentNum < prevNum &&  !(prevNum === 39 && currentNum === 0) && prevNum !== parseInt(combo[0])) {
       // Trigger the WrongWay component
-      setStep(5)
+      setStep(6)
     }
 
 

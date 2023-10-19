@@ -8,10 +8,12 @@ import lockFull from '../public/lock-full-centered-open.png';
 import lockFace from '../public/lock-face-centered.png';
 import logo from '../public/titledLogo.png'
 import Welcome from '../components/Welcome/Welcome';
+import Instructions from '../components/Instructions/Instructions';
 import Num1 from '../components/Num1/Num1';
 import Num2 from '../components/Num2/Num2';
 import Num3 from '../components/Num3/Num3';
-import WrongWay from '../components/WrongWay/WrongWay'
+import WrongWay from '../components/WrongWay/WrongWay';
+import PassedNum from '../components/PassedNum/PassedNum';
 import Success from '../components/Success/Success';
 import Confetti from 'react-confetti';
 
@@ -144,16 +146,17 @@ export default function Home() {
         }
 
       {step === 0 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} currentNum={currentLockNum} /> : null}
-      {step === 1 ? <Num1 combo={combo} setStep={setStep} currentNum={currentLockNum}/> : null}
-      {step === 2 ? <Num2 combo={combo} currentNum={currentLockNum} setStep={setStep} /> : null}
-      {step === 3 ? <Num3 combo={combo} setStep={setStep} currentNum={currentLockNum} /> : null}
-      {step === 4 ? <><Success setStep={setStep}/>  <Confetti /> </> : null}
-      {step === 5 ? <WrongWay setStep={setStep}/> : null}
-      {/* {step === 6 ? <PassedNum /> : null}  */}
+      {step === 1 ? <Instructions setStep={setStep} /> : null}
+      {step === 2 ? <Num1 combo={combo} setStep={setStep} currentNum={currentLockNum}/> : null}
+      {step === 3 ? <Num2 combo={combo} currentNum={currentLockNum} setStep={setStep} /> : null}
+      {step === 4 ? <Num3 combo={combo} setStep={setStep} currentNum={currentLockNum} /> : null}
+      {step === 5 ? <><Success setStep={setStep}/>  <Confetti /> </> : null}
+      {step === 6 ? <WrongWay setStep={setStep}/> : null}
+      {step === 7 ? <PassedNum setStep={setStep} /> : null}
 
 
 
-      <div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={step === 4 ? styles.lockBarOpen : null}>
+      <div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={step === 5 ? styles.lockBarOpen : null}>
     <Image src={lockBar} height={600} alt="Lock" />
 </div>
 <div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={styles.lockContainer}>
