@@ -3,7 +3,12 @@
   src: url('../public/fonts/FUTRFW.TTF');
   font-weight: normal;
   font-style: normal;
-
+}
+@font-face {
+  font-family: 'GeoSansLight';
+  src: url('../public/fonts/GeosansLight.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 #app {

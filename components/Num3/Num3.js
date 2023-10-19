@@ -35,7 +35,8 @@ export default function Num3({ setStep, combo, setCombo, currentNum }) {
 
   return (
     <div id={styles.resetContainer}>
-      <h2>Step 3: 3rd Number</h2>
+      <h2>Step 3</h2>
+      <h3>3rd Number</h3>
       <p>{`Almost done! Now, turn right again straight to your 3rd number: ${combo[2]}`}</p>
     </div>
   )

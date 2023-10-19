@@ -38,25 +38,30 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
     }
   }, [resetComplete])
 
+  useEffect(() => {
+    if ('vibrate' in navigator) {
+      navigator.vibrate(200); // Vibrate for 200 milliseconds
+    } else {
+      console.log('Vibration API not supported');
+    }
 
+  }, [stepsCompleted])
 
 
 
   return (
     <div id={styles.resetContainer}>
-      <h2>Step 1: Reset & 1st Number</h2>
+      <h2>Step 1</h2>
+      <h3>Reset & 1st Number</h3>
       <p>{`Once
       you begin spinning, you CANNOT spin the opposite direction - not even a little bit. If you do, you'll have to start all the way at
       the beginning again.`}</p>
 
-      {/* <p>{`First, you'll need to reset your lock. Spin it to the right (clockwise) all the way around at least one full spin, then
-      stop on your first number:`}</p> */}
-      {/* <p className={styles.comboNumberLabel}>{`${combo[0]}`}</p> */}
       <div id={styles.stepsContainer}>
-        <p>{`1. Spin all the way around to the right at least once`}</p>
-        <p>{`2. Stop on ${combo[0]}`}</p>
+        <p>{`1. Spin all the way around to the right at least one full spin`}</p>
+        <p>{`2. Stop on your first number: ${combo[0]}`}</p>
       </div>
-      <p>{`Completed: ${stepsCompleted} / 2 `}</p>
+      <p className={stepsCompleted === 1 ? styles.successAnimation : null}>{`Steps Completed: ${stepsCompleted} / 2 `}</p>
     </div>
   )
 }

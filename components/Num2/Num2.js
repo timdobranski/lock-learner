@@ -34,13 +34,14 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
 
   return (
     <div id={styles.resetContainer}>
-      <h2>Step 2: 2nd Number</h2>
+      <h2>Step 2</h2>
+      <h3>2nd Number</h3>
       <p>{`Now you'll turn the other way, BUT...there's a catch. You'll need to pass your 2nd number and come to it again.
-      So turn the lock to the left until you reach ${combo[1]}`}</p>
+      So turn the lock to the left until you reach ${combo[1]} -- twice.`}</p>
       <div id={styles.stepsContainer}>
         <p>{`1. Turn left to ${combo[1]} twice`}</p>
       </div>
-        <p>{`Times Completed: ${timesHitNumber} / 2`}</p>
+        <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`Times Completed: ${timesHitNumber} / 2`}</p>
     </div>
   )
 }

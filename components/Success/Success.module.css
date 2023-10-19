@@ -1,7 +1,16 @@
 #resetContainer {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 50vw;
-  min-width: 350px;
+  font-family: GeoSansLight;
+  width: 80vw;
+  min-width: 250px;
+  max-width: 600px;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgb(0, 0, 0));
+  position: relative;
+  z-index: 2;
+  margin: 1rem 0rem 0rem 0rem;
+  height: auto;
+  border-radius: 15px;
+  color: white;
+  padding: 1rem;
 }
 
 .againButton {

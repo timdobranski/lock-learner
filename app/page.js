@@ -135,13 +135,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <div className={styles.logo}>
-        <Image src={logo} fill='true' alt="Parkway Logo" />
-      </div>
-      <h1 className={styles.title}>LOCK LEARNER</h1>
       {step > 0 ?
       <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(0)}}>
-        <h2>COMBO</h2>
+        <h2>YOUR COMBO</h2>
         <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
       </div>
         : null

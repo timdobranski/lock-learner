@@ -1,4 +1,6 @@
 import styles from './Welcome.module.css'
+import Image from 'next/image';
+import logo from '../../public/titledLogo.png'
 
 export default function Welcome({ setStep, combo, setCombo }) {
 
@@ -22,6 +24,13 @@ export default function Welcome({ setStep, combo, setCombo }) {
   };
 
   return (
+    <div>
+      <div className={styles.logo}>
+        <Image src={logo} fill='true' alt="Parkway Logo" />
+      </div>
+      <h1 className={styles.title}>LOCK LEARNER</h1>
+
+
     <div className={styles.container}>
       <form onSubmit={handleSubmit} id={styles.formContainer}>
       <div id={styles.inputContainer}>
@@ -60,6 +69,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
       </form>
       <h2 id={styles.welcomeHeader}>Welcome, PE Students!</h2>
       <p>To practice opening your lock, enter your 3 digit combination above</p>
+    </div>
     </div>
   );
 }
