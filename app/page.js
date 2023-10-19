@@ -153,30 +153,27 @@ export default function Home() {
 
 
 
-      {step !== 0 ?
-      <>
-      <div className={styles.lock} id={step === 4 ? styles.lockBarOpen : null}>
-        <Image src={lockBar} height={600} alt="Lock" />
-      </div>
-      <div className={styles.lock} id={styles.lockContainer}>
-        <Image src={lockFull} height={600} alt="Lock" />
-      </div>
-      <div
-        className={styles.lock}
-        id={styles.lockFaceContainer}
-        ref={lockFaceRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ transform: `rotate(${rotation}deg)` }}
-      >
-        <Image src={lockFace} height={600} alt="Lock" />
-      </div>
-      </> : null}
+      <div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={step === 4 ? styles.lockBarOpen : null}>
+    <Image src={lockBar} height={600} alt="Lock" />
+</div>
+<div className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`} id={styles.lockContainer}>
+    <Image src={lockFull} height={600} alt="Lock" />
+</div>
+<div
+    className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`}
+    id={styles.lockFaceContainer}
+    ref={lockFaceRef}
+    onMouseDown={handleMouseDown}
+    onMouseMove={handleMouseMove}
+    onMouseUp={handleMouseUp}
+    onMouseLeave={handleMouseUp}
+    onTouchStart={handleTouchStart}
+    onTouchMove={handleTouchMove}
+    onTouchEnd={handleTouchEnd}
+    style={{ transform: `rotate(${rotation}deg)` }}
+>
+    <Image src={lockFace} height={600} alt="Lock" />
+</div>
     </main>
   );
 }
