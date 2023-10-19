@@ -9,7 +9,7 @@
 }
 
 .lock {
-  position: fixed;
+  position: absolute;
   bottom: -220px;
   margin-bottom: 2rem;
   overflow: hidden;
