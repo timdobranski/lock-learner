@@ -26,6 +26,11 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
   }, [currentNum, combo])
 
   useEffect(() => {
+    if ('vibrate' in navigator) {
+      navigator.vibrate(200); // Vibrate for 200 milliseconds
+    } else {
+      console.log('Vibration API not supported');
+    }
     console.log('new timeshitnumber: ', timesHitNumber);
     if (timesHitNumber === 2) {
       setStep(prevStep => prevStep + 1)
