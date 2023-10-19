@@ -166,13 +166,13 @@ export default function Home() {
     className={`${styles.lock} ${step === 0 ? styles.hidden : ''}`}
     id={styles.lockFaceContainer}
     ref={lockFaceRef}
-    onMouseDown={handleMouseDown}
-    onMouseMove={handleMouseMove}
-    onMouseUp={handleMouseUp}
-    onMouseLeave={handleMouseUp}
-    onTouchStart={handleTouchStart}
-    onTouchMove={handleTouchMove}
-    onTouchEnd={handleTouchEnd}
+    onMouseDown={step !== 5 ? handleMouseDown : null}
+    onMouseMove={step !== 5 ? handleMouseMove : null}
+    onMouseUp={step !== 5 ? handleMouseUp : null}
+    onMouseLeave={step !== 5 ? handleMouseUp : null}
+    onTouchStart={step !== 5 ? handleTouchStart : null}
+    onTouchMove={step !== 5 ? handleTouchMove : null}
+    onTouchEnd={step !== 5 ? handleTouchEnd : null}
     style={{ transform: `rotate(${rotation}deg)` }}
 >
     <Image src={lockFace} height={600} alt="Lock" />
