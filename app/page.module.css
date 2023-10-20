@@ -16,9 +16,6 @@
   border-radius: 50%;
 }
 
-#lockContainer{
-  /* border: solid red 4px; */
-}
 #lockFaceContainer{
   z-index: 1;
 
@@ -61,4 +58,8 @@
 }
 .hidden {
   display: none;
+}
+
+.lockPop {
+
 }

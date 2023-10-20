@@ -18,10 +18,53 @@
   text-align: center;
   letter-spacing: 0;
   overflow: hidden;
+  /* border: solid red 4px; */
+  box-sizing: border-box;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.infoCard {
+  font-family: GeoSansLight;
+  width: 50vw;
+  min-width: 500px;
+  background: linear-gradient(rgba(0, 0, 0, .7), rgb(0, 0, 0));
+  position: relative;
+  z-index: 2;
+  margin: 1rem 2rem 0rem 2rem;
+  border-radius: 15px;
+  color: white;
+  padding: 1rem;
+  font-size: 1.25rem;
+}
+.infoCard h2 {
+  margin: 0;
+  padding: 0;
+}
+.infoCard h3 {
+  margin: 0;
+}
+.infoCard p {
+  margin: 1rem;;
+  padding: 0;
+}
+.stylizedButton {
+  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
+  color: black;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: .5rem 1rem .5rem 1rem;
+  /* width: 50%; */
+}
+
+@media(max-width: 768px) {
+  .infoCard {
+    width: 80vw;
+    min-width: 0;
+  }
 }

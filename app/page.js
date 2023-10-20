@@ -157,26 +157,26 @@ export default function Home() {
 
 
       <div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={step === 5 ? styles.lockBarOpen : null}>
-    <Image src={lockBar} height={600} alt="Lock" />
-</div>
-<div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={styles.lockContainer}>
-    <Image src={lockFull} height={600} alt="Lock" />
-</div>
-<div
-    className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`}
-    id={styles.lockFaceContainer}
-    ref={lockFaceRef}
-    onMouseDown={step !== 5 ? handleMouseDown : null}
-    onMouseMove={step !== 5 ? handleMouseMove : null}
-    onMouseUp={step !== 5 ? handleMouseUp : null}
-    onMouseLeave={step !== 5 ? handleMouseUp : null}
-    onTouchStart={step !== 5 ? handleTouchStart : null}
-    onTouchMove={step !== 5 ? handleTouchMove : null}
-    onTouchEnd={step !== 5 ? handleTouchEnd : null}
-    style={{ transform: `rotate(${rotation}deg)` }}
->
-    <Image src={lockFace} height={600} alt="Lock" />
-</div>
+        <Image src={lockBar} height={600} alt="Lock" />
+      </div>
+      <div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={styles.lockContainer}>
+          <Image src={lockFull} height={600} alt="Lock" />
+      </div>
+      <div
+        className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`}
+        id={styles.lockFaceContainer}
+        ref={lockFaceRef}
+        onMouseDown={step !== 5 ? handleMouseDown : null}
+        onMouseMove={step !== 5 ? handleMouseMove : null}
+        onMouseUp={step !== 5 ? handleMouseUp : null}
+        onMouseLeave={step !== 5 ? handleMouseUp : null}
+        onTouchStart={step !== 5 ? handleTouchStart : null}
+        onTouchMove={step !== 5 ? handleTouchMove : null}
+        onTouchEnd={step !== 5 ? handleTouchEnd : null}
+        style={{ transform: `rotate(${rotation}deg)` }}
+      >
+        <Image src={lockFace} height={600} alt="Lock" />
+      </div>
     </main>
   );
 }

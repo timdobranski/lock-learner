@@ -1,7 +1,7 @@
 'use client';
-
+import '../../app/globals.css';
 import { useEffect, useState, useRef } from 'react';
-import styles from './Num2.module.css'
+import styles from './Num2.module.css';
 
 
 export default function Num2({ setStep, combo, setCombo, currentNum }) {
@@ -43,15 +43,14 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
   }, [timesHitNumber, setStep])
 
   return (
-    <div id={styles.resetContainer}>
-      <h2>Step 2</h2>
-      <h3>2nd Number</h3>
-      <p>{`Now you'll turn the other way, BUT...there's a catch. You'll need to pass your 2nd number and come to it again.
-      So turn the lock to the left until you reach ${combo[1]} -- twice.`}</p>
-      <div id={styles.stepsContainer}>
-        <p>{`1. Turn left to ${combo[1]} twice`}</p>
-      </div>
-        <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`Times Completed: ${timesHitNumber} / 2`}</p>
+    <div className='infoCard'>
+      <h2>2nd Number</h2>
+
+      <p>{`Now turn your lock to the left until you reach your second number, ${combo[1]}, twice`}</p>
+
+        <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`Spins to ${combo[1]} Completed:`}</p>
+        <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`${timesHitNumber} / 2`}</p>
+
     </div>
   )
 }

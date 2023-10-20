@@ -65,7 +65,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
           />
         </div>
         </div>
-        <button type="submit" id={styles.comboSubmitButton}>SET COMBO</button>
+        <button type="submit" className='stylizedButton'>SET COMBO</button>
       </form>
       <div id={styles.resetContainer}>
         <h2 id={styles.welcomeHeader}>Welcome, PE Students!</h2>
