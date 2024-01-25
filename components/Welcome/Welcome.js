@@ -24,7 +24,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
   };
 
   return (
-    <div >
+    <div className={styles.welcomeWrapper}>
       <div className={styles.logoWrapper}>
         <div className={styles.logo}>
           <Image src={logo} fill='true' alt="Parkway Logo" />

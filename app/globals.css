@@ -74,4 +74,7 @@ input::-webkit-inner-spin-button {
     width: 80vw;
     min-width: 0;
   }
+  #app {
+    background-image: url(../public/gradient3smallVertical.webp);
+  }
 }

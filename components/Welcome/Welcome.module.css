@@ -9,6 +9,12 @@
   margin: 0;
   padding: 0;
 }
+.welcomeWrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 #formContainer{
   width: 100vw;
 }
@@ -23,7 +29,7 @@
   background-color: rgba(255, 255, 255, .7);
   width: fit-content;
   margin: 0 auto;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   margin-bottom: 1rem;
   transform: skew(-10deg);
   padding: 0 0 1rem 2rem;
@@ -87,5 +93,45 @@
 #resetContainer p {
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
+}
 
+@media(max-width: 768px) {
+  .welcomeWrapper {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+
+  }
+  .logo {
+    min-width: 90vw;
+    min-height: 22.5vw;
+    margin: 0 auto;
+    margin-bottom: -1rem;
+    transform: none;
+    /* border: solid red 2px; */
+  }
+  .logoWrapper {
+    box-sizing: border-box;
+    width: 95vw;
+    transform: none;
+    padding: 0;
+  }
+  .title {
+    margin-bottom: 1rem;
+  }
+  .comboInput {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  #comboSubmitButton {
+    width: 15rem;
+    font-size: 1.25rem;
+  }
+  #resetContainer {
+    width: 80vw;
+    min-width: 0;
+    transform: none;
+  }
 }
