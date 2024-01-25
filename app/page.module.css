@@ -27,9 +27,12 @@
   max-width: 300px;
   margin: 0 auto;
   margin-top: .5rem;
-  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
+  /* background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184)); */
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
   padding: .5rem;
-  border-radius: 15px;
+  border-radius: 5px;
+  transform: skew(-10deg);
 }
 #comboContainer:hover {
   background-color: rgb(235, 235, 235);

@@ -12,7 +12,10 @@
 }
 
 #app {
-  background: linear-gradient(to bottom, #fafafa, #53afe9);
+  background: linear-gradient(to bottom, #37c6ff, #0092ec);
+  background-image: url(../public/gradient3small.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
   /* background: linear-gradient(to bottom, #53afe9, #fafafa); */
   font-family: Future;
   text-align: center;
@@ -40,6 +43,7 @@ input::-webkit-inner-spin-button {
   color: white;
   padding: 1rem;
   font-size: 1.25rem;
+
 }
 .infoCard h2 {
   margin: 0;
@@ -54,11 +58,14 @@ input::-webkit-inner-spin-button {
 }
 .stylizedButton {
   background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
+  background: rgb(253, 116, 116);
+  transform: skew(-10deg);
   color: black;
   border: none;
   font-size: 1.5rem;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: .5rem 1rem .5rem 1rem;
+  margin: .5rem;
   /* width: 50%; */
 }
 

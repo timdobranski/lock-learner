@@ -5,7 +5,6 @@
 }
 .title {
   font-size: 1.75rem;
-
   font-weight: 100;
   margin: 0;
   padding: 0;
@@ -20,6 +19,18 @@
   align-items: center;
   margin: 1rem;
 }
+.logoWrapper {
+  background-color: rgba(255, 255, 255, .7);
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transform: skew(-10deg);
+  padding: 0 0 1rem 2rem;
+  border-radius: 5px;
+  border: solid white 4px;
+  backdrop-filter: blur(1px);
+}
 .logo {
   position: relative;
   margin: 0 auto;
@@ -27,6 +38,7 @@
   width: 100vw;
   max-height: 150px;
   max-width: 600px;
+  margin-bottom: -20px;
 }
 .comboInput {
   display: inline-block;
@@ -53,7 +65,7 @@
   font-family: Future;
 }
 #welcomeHeader {
-
+  border-radius: 5px;
 }
 #resetContainer {
   font-family: GeoSansLight;
@@ -69,9 +81,11 @@
   border-radius: 15px;
   color: white;
   padding: 1rem;
-
+  border-radius: 5px;
+  transform: skew(-10deg);
 }
 #resetContainer p {
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
+
 }

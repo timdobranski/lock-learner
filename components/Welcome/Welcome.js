@@ -25,10 +25,12 @@ export default function Welcome({ setStep, combo, setCombo }) {
 
   return (
     <div >
-      <div className={styles.logo}>
-        <Image src={logo} fill='true' alt="Parkway Logo" />
+      <div className={styles.logoWrapper}>
+        <div className={styles.logo}>
+          <Image src={logo} fill='true' alt="Parkway Logo" />
+        </div>
+        <h1 className={styles.title}>LOCK LEARNER</h1>
       </div>
-      <h1 className={styles.title}>LOCK LEARNER</h1>
 
 
     <div className={styles.container}>
