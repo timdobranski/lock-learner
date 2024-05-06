@@ -11,14 +11,15 @@
 }
 .welcomeWrapper {
   position: absolute;
-  top: 40%;
+  width: 100vw;
+  top: 2rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
-#formContainer{
+.formContainer{
   width: 100vw;
 }
-#inputContainer {
+.inputContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -29,22 +30,33 @@
   background-color: rgba(255, 255, 255, .7);
   width: fit-content;
   margin: 0 auto;
-  /* margin-top: 1rem; */
+  /* width: 100vw; */
   margin-bottom: 1rem;
-  transform: skew(-10deg);
+  box-sizing: border-box;
+  /* transform: skew(-10deg); */
   padding: 0 0 1rem 2rem;
-  border-radius: 5px;
-  border: solid white 4px;
+  /* border-radius: 5px; */
+  border: solid white 6px;
+
   backdrop-filter: blur(1px);
 }
 .logo {
-  position: relative;
-  margin: 0 auto;
-  height: 25vw;
-  width: 100vw;
-  max-height: 150px;
-  max-width: 600px;
-  margin-bottom: -20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
+.shield {
+  height: 100px;
+  margin: 0;
+  padding: 0;
+
+}
+.titledLogo {
+height: 150px;
+margin: 0;
+padding: 0;
 }
 .comboInput {
   display: inline-block;
@@ -58,22 +70,11 @@
   margin: 0 1rem 0 1rem;
 }
 
-#comboSubmitButton {
-  width: 18rem;
-  border: solid;
-  border: solid rgb(136, 136, 136) 1px;
-  border-radius: 15px;
-  padding: .5rem;
-  background-color: rgb(0, 71, 142);
-  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
-  /* color: white; */
-  font-size: 1.5rem;
-  font-family: Future;
-}
+
 #welcomeHeader {
   border-radius: 5px;
 }
-#resetContainer {
+.resetContainer {
   font-family: GeoSansLight;
   width: 80vw;
   min-width: 250px;
@@ -88,9 +89,8 @@
   color: white;
   padding: 1rem;
   border-radius: 5px;
-  transform: skew(-10deg);
 }
-#resetContainer p {
+.resetContainer p {
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
 }
@@ -125,11 +125,7 @@
     height: 40px;
     font-size: 1.5rem;
   }
-  #comboSubmitButton {
-    width: 15rem;
-    font-size: 1.25rem;
-  }
-  #resetContainer {
+  .resetContainer {
     width: 80vw;
     min-width: 0;
     transform: none;

@@ -58,8 +58,7 @@ input::-webkit-inner-spin-button {
 }
 .stylizedButton {
   background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
-  background: rgb(253, 116, 116);
-  transform: skew(-10deg);
+  background: rgb(255, 84, 84);
   color: black;
   border: none;
   font-size: 1.5rem;

@@ -1,6 +1,8 @@
 import styles from './Welcome.module.css'
 import Image from 'next/image';
-import logo from '../../public/titledLogo.png'
+import shield from '../../public/parkway.webp'
+import title from '../../public/titledLogoNoShield.webp'
+
 
 export default function Welcome({ setStep, combo, setCombo }) {
 
@@ -27,15 +29,17 @@ export default function Welcome({ setStep, combo, setCombo }) {
     <div className={styles.welcomeWrapper}>
       <div className={styles.logoWrapper}>
         <div className={styles.logo}>
-          <Image src={logo} fill='true' alt="Parkway Logo" />
+          <img src='/parkway.webp'  className={styles.shield} alt="Parkway Logo" />
+          <img src='/titledLogoNoShield.webp'  className={styles.titledLogo} alt="Parkway Title Logo" />
+
         </div>
         <h1 className={styles.title}>LOCK LEARNER</h1>
       </div>
 
 
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} id={styles.formContainer}>
-      <div id={styles.inputContainer}>
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
+      <div className={styles.inputContainer}>
         <div>
           <input
             type="number"
@@ -69,8 +73,8 @@ export default function Welcome({ setStep, combo, setCombo }) {
         </div>
         <button type="submit" className='stylizedButton'>SET COMBO</button>
       </form>
-      <div id={styles.resetContainer}>
-        <h2 id={styles.welcomeHeader}>Welcome, PE Students!</h2>
+      <div className={styles.resetContainer}>
+        <h2 className={styles.welcomeHeader}>Welcome, PE Students!</h2>
         <p>To practice opening your lock, enter your 3 digit combination above</p>
       </div>
     </div>
