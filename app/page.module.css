@@ -15,12 +15,23 @@
   overflow: hidden;
   border-radius: 50%;
 }
+.lockFaceWrapper {
+  position: relative;
+
+  /* border: solid red 2px; */
+}
 .lockFace {
-  border: solid red 2px;
+  /* border: solid red 2px; */
+}
+.lockIndicatorWrapper {
+  z-index: 10;
+    pointer-events: none;
+}
+.lockFaceIndicator {
+
 }
 #lockFaceContainer{
   z-index: 1;
-
 }
 #comboContainer {
   position: relative;

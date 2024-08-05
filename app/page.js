@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import lockBar from '../public/lock-open.png';
 import lockFull from '../public/lock-full-centered-open.png';
 import lockFace from '../public/lock-face-centered.png';
+import lockFaceIndicator from '../public/lock-face-centered-indicator.png';
 import logo from '../public/titledLogo.png'
 import Welcome from '../components/Welcome/Welcome';
 import Instructions from '../components/Instructions/Instructions';
@@ -44,6 +45,25 @@ export default function Home() {
 
   useEffect (() => {
     console.log('step: ', step);
+
+    if (step === 1) {
+        // Check for adjacent duplicates, ignoring empty strings
+    const hasAdjacentDuplicates = combo.some((value, index, arr) => {
+      if (value === '') {
+        return false;
+      }
+      if (index > 0 && value === arr[index - 1] && value !== '') {
+        return true;
+      }
+      return false;
+    });
+
+    if (hasAdjacentDuplicates) {
+      alert('This is an invalid combo. No combo will ever have two adjacent numbers the same. Please choose another combo.');
+      // Set combo to some default value if needed
+      setCombo(['', '', '']);
+    }
+    }
   }, [step])
 
   useEffect(() => {
@@ -52,7 +72,11 @@ export default function Home() {
 
   useEffect(() => {
     console.log('combo: ', combo);
-  }, [combo])
+    if (!combo[0] && !combo[1] && !combo[2]) {
+      setStep(0);
+    }
+
+  }, [combo]);
 
   useEffect(() => {
     const lockFaceElem = lockFaceRef.current;
@@ -175,8 +199,18 @@ export default function Home() {
         onTouchEnd={step !== 5 ? handleTouchEnd : null}
         style={{ transform: `rotate(${rotation}deg)` }}
       >
-        <Image src={lockFace} height={600} alt="Lock" className={styles.lockFace}/>
+      <Image src={lockFace} height={600} alt="Lock" className={styles.lockFace}/>
+
       </div>
+      <div
+        className={`${styles.lock} ${styles.lockIndicatorWrapper} ${step < 2 ? styles.hidden : ''}`}>
+      <Image
+      src={lockFaceIndicator}
+      height={600}
+      alt="Lock"
+      className={styles.lockFaceIndicator}
+      style={{ transform: `rotate(${rotation + (combo[step - 2] * 9)}deg)` }}/>
+    </div>
     </main>
   );
 }
