@@ -202,15 +202,17 @@ export default function Home() {
       <Image src={lockFace} height={600} alt="Lock" className={styles.lockFace}/>
 
       </div>
+      {step < 5 &&
       <div
         className={`${styles.lock} ${styles.lockIndicatorWrapper} ${step < 2 ? styles.hidden : ''}`}>
       <Image
       src={lockFaceIndicator}
       height={600}
       alt="Lock"
-      className={styles.lockFaceIndicator}
+      className={`${styles.lockFaceIndicator}`}
       style={{ transform: `rotate(${rotation + (combo[step - 2] * 9)}deg)` }}/>
     </div>
+}
     </main>
   );
 }
