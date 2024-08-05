@@ -148,7 +148,7 @@ export default function Home() {
       {step === 0 ? <Welcome combo={combo} setCombo={setCombo} setStep={setStep} currentNum={currentLockNum} /> : null}
       {step === 1 ? <Instructions setStep={setStep} /> : null}
       {step === 2 ? <Num1 combo={combo} setStep={setStep} currentNum={currentLockNum}/> : null}
-      {step === 3 ? <Num2 combo={combo} currentNum={currentLockNum} setStep={setStep} /> : null}
+      {step === 3 ? <Num2 combo={combo} setStep={setStep} currentNum={currentLockNum} /> : null}
       {step === 4 ? <Num3 combo={combo} setStep={setStep} currentNum={currentLockNum} /> : null}
       {step === 5 ? <><Success setStep={setStep}/>  <Confetti /> </> : null}
       {step === 6 ? <WrongWay setStep={setStep}/> : null}
@@ -175,7 +175,7 @@ export default function Home() {
         onTouchEnd={step !== 5 ? handleTouchEnd : null}
         style={{ transform: `rotate(${rotation}deg)` }}
       >
-        <Image src={lockFace} height={600} alt="Lock" />
+        <Image src={lockFace} height={600} alt="Lock" className={styles.lockFace}/>
       </div>
     </main>
   );

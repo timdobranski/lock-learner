@@ -28,11 +28,11 @@ export default function Welcome({ setStep, combo, setCombo }) {
   return (
     <div className={styles.welcomeWrapper}>
       <div className={styles.logoWrapper}>
-        <div className={styles.logo}>
+        {/* <div className={styles.logo}> */}
           <img src='/parkway.webp'  className={styles.shield} alt="Parkway Logo" />
-          <img src='/titledLogoNoShield.webp'  className={styles.titledLogo} alt="Parkway Title Logo" />
+          {/* <img src='/titledLogoNoShield.webp'  className={styles.titledLogo} alt="Parkway Title Logo" /> */}
 
-        </div>
+        {/* </div> */}
         <h1 className={styles.title}>LOCK LEARNER</h1>
       </div>
 

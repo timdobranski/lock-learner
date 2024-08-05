@@ -3,9 +3,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* padding: 2rem; */
   min-height: 100vh;
   overflow: hidden;
+  /* border: solid red 2px; */
 }
 
 .lock {
@@ -15,7 +15,9 @@
   overflow: hidden;
   border-radius: 50%;
 }
-
+.lockFace {
+  border: solid red 2px;
+}
 #lockFaceContainer{
   z-index: 1;
 
