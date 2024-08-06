@@ -16,11 +16,11 @@ export default function Welcome({ setStep, combo, setCombo }) {
   };
 
   const handleInputChange = (index, value) => {
-      // Create a new combo array based on the existing combo
+    if (value === "" || (value.length <= 2 && isValidComboValue(value))) {
       const newCombo = [...combo];
       newCombo[index] = value;
       setCombo(newCombo);
-
+    }
   };
 
   const handleSubmit = (e) => {
@@ -49,6 +49,7 @@ export default function Welcome({ setStep, combo, setCombo }) {
             value={combo[0] || ''}
             onChange={(e) => handleInputChange(0, e.target.value)}
             maxLength="1"
+            max='39'
             className={styles.comboInput}
           />
         </div>
