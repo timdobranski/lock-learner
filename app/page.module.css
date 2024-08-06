@@ -229,3 +229,13 @@
     font-size: 1.5rem;
   }
 }
+
+@media(max-width: 350px) {
+  .arrowIndicatorLeft, .arrowIndicatorRight {
+    top: 40%;
+    right: 25%;
+  }
+  .arrowIndicatorLeft {
+    right: 62%;
+  }
+}
