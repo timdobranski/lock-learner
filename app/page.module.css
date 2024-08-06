@@ -1,3 +1,23 @@
+/* animations for the rotate arrow indicators */
+@keyframes growShrink {
+  0%, 100% {
+    transform: scale(1) translateY(-50%) rotatez(-20deg);
+  }
+  50% {
+    transform: scale(1.2) translateY(-50%) rotatez(-20deg);
+  }
+}
+
+/* Define the keyframes for the grow-shrink animation for rotated elements */
+@keyframes growShrinkRotate {
+  0%, 100% {
+    transform: scale(1) translateY(-50%) rotateY(180deg) rotatez(-20deg);
+  }
+  50% {
+    transform: scale(1.2) translateY(-50%) rotateY(185deg) rotatez(-20deg);
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -30,25 +50,69 @@
 .lockFaceIndicator {
 
 }
+.lockContainer {
+
+}
 #lockFaceContainer{
   z-index: 1;
 }
-#comboContainer {
-  position: relative;
-  top: 50%;
-  width: 80vw;
-  max-width: 300px;
+.logoWrapper {
+  background-color: rgba(0, 107, 149, 0.8);
+  border-bottom: 2px solid rgb(0, 77, 107);
+  width: fit-content;
   margin: 0 auto;
-  margin-top: .5rem;
-  /* background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184)); */
-  background: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(10px);
-  padding: .5rem;
-  border-radius: 5px;
-  transform: skew(-10deg);
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  backdrop-filter: blur(3px) brightness(.9);
+  height: 80px;
+  /* border: solid red 2px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.shield {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  color: red;
+  font-size: 2.5rem;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  /* border: solid red 2px; */
+}
+.comboContainer {
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 2px solid rgb(0, 77, 107);
+  width: fit-content;
+  margin: 0 auto;
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  backdrop-filter: blur(3px) brightness(.9);
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  height: 50px;
+}
+.comboDisplayWrapper {
+  position: relative;
 }
 #comboContainer:hover {
-  background-color: rgb(235, 235, 235);
   cursor: pointer;
 }
 #comboContainer h2, #comboContainer p {
@@ -62,11 +126,52 @@
   font-size: 1.25rem;
 }
 
-#comboContainer p {
+.combo {
   font-size: 1.25rem;
   margin: 0;
   padding: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* .combo, .combo * {
+  vertical-align: middle;
+  display: inline-block;
+} */
+.activeComboNum, .inactiveComboNum {
+  height: 20px;
+  width: 20px;
+  display: inline-flex; /* Change to inline-flex to use Flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin: 0 auto;
+  padding: .5rem;
+}
+
+.activeComboNum {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  text-decoration-color: red;
+  background-color: rgb(0, 77, 107);
+  border-radius: 50%;
+}
+.backIcon {
+  position: absolute;
+  left: -4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  min-height: 20px;
+  height: 20px;
+  width: 20px;
+  max-height: 100px;
+  margin: 0;
+  padding: .4rem;
+  border-radius: 50%;
+
+}
+.backIcon:hover {
+  cursor: pointer;
+  background-color: rgb(0, 110, 153);
+  color: rgb(255, 255, 255);
 }
 #lockBarOpen {
   transform: translateY(-7%);
@@ -75,7 +180,52 @@
 .hidden {
   display: none;
 }
+.arrowIndicatorLeft, .arrowIndicatorRight {
+  position: absolute;
+  z-index: 10;
+  top: 40%;
+  right: 20%;
+  animation: growShrink 2s infinite; /* Apply the animation */
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, .8)); /* Add glow effect */
+  pointer-events: none;
+  touch-action: none;
+  /* transform: translateY(-50%); */
+}
+.arrowIndicatorLeft {
+  right: 68%;
+  /* transform: translateY(-50%) rotateY(180deg); */
+  animation: growShrinkRotate 2s infinite; /* Apply the animation with rotation */
 
-.lockPop {
+}
 
+.arrowImage {
+  height: 100px;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+}
+@media(max-width: 768px) {
+  .welcomeWrapper {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+
+  }
+  .shield {
+    height: 50%;
+  }
+  .logoWrapper {
+    background-color: rgba(0, 107, 149, 0.3);
+
+    box-sizing: border-box;
+    transform: none;
+    padding: 0;
+    height: 80px;
+    border-bottom-width: 1px;
+  }
+  .title {
+    width: 60%;
+    font-size: 1.5rem;
+  }
 }

@@ -17,6 +17,8 @@ import WrongWay from '../components/WrongWay/WrongWay';
 import PassedNum from '../components/PassedNum/PassedNum';
 import Success from '../components/Success/Success';
 import Confetti from 'react-confetti';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   const [rotation, setRotation] = useState(0);
@@ -26,6 +28,7 @@ export default function Home() {
 
   const [step, setStep] = useState(0);
   const [combo, setCombo] = useState(['', '', '']);
+  const [currentNum, setCurrentNum] = useState(null);
 
   const lockReset = () => {
     setRotation(0);
@@ -45,29 +48,53 @@ export default function Home() {
 
   useEffect (() => {
     console.log('step: ', step);
-
+    // check if the combo is valid whenever we move to step 1 (directions)
     if (step === 1) {
         // Check for adjacent duplicates, ignoring empty strings
     const hasAdjacentDuplicates = combo.some((value, index, arr) => {
-      if (value === '') {
-        return false;
-      }
+
       if (index > 0 && value === arr[index - 1] && value !== '') {
         return true;
       }
       return false;
     });
-
     if (hasAdjacentDuplicates) {
+      console.log('Invalid combo, setting step back to 0');
       alert('This is an invalid combo. No combo will ever have two adjacent numbers the same. Please choose another combo.');
       // Set combo to some default value if needed
       setCombo(['', '', '']);
     }
+    const hasMissingDigits = combo.some((value, index, arr) => {
+
+      if (value === '') {
+        return true;
+      }
+      return false;
+    });
+    if (hasMissingDigits) {
+      console.log('Invalid combo, setting step back to 0');
+      alert('This is an invalid combo. Please fill in all the numbers.');
+      // Set combo to some default value if needed
+      setCombo(['', '', '']);
     }
+    // combo is valid, move to next step
+    setRotation(0);
+    setLastPosition(null);
+    }
+    if (step === 2) {
+      setCurrentNum(0);
+    } else if (step === 3) {
+      setCurrentNum(1);
+    } else if (step === 4) {
+      setCurrentNum(2);
+    } else {
+      setCurrentNum(null);
+    }
+
   }, [step])
 
   useEffect(() => {
-    console.log('currentLockNum: ', currentLockNum);
+    // console.log('currentLockNum: ', currentLockNum);
   }, [currentLockNum])
 
   useEffect(() => {
@@ -159,12 +186,45 @@ export default function Home() {
   handleMouseUp(); // Reuse the mouse up logic
   };
 
+  const handleBackButtonClick = () => {
+    // if we're in the middle of the game, or we won or lost, back sends us to step 1 (num 1)
+    if (step === 3 || step === 4 || step === 5 || step === 6 || step === 7) {
+      setStep(1);
+      // step 1 and 2 back just goes back 1 step; button won't render on step 0
+    } else {
+      setStep(prevStep => prevStep - 1);
+    }
+  }
+
+
   return (
     <main className={styles.main}>
+      <div className={styles.logoWrapper}>
+          <img src='/parkway.webp'  className={styles.shield} alt="Parkway Logo" />
+        <h1 className={styles.title}>LOCK LEARNER</h1>
+      </div>
+
       {step > 0 ?
-      <div id={styles.comboContainer} onClick={() => {setCombo(['', '', '']); setStep(0)}}>
-        <h2>YOUR COMBO</h2>
-        <p>{`${combo[0]} -  ${combo[1]} -  ${combo[2]}`}</p>
+      <div className={styles.comboContainer} >
+        {/* <h2>YOUR COMBO</h2> */}
+       <div className={styles.comboDisplayWrapper}>
+        <FontAwesomeIcon icon={faChevronLeft} className={styles.backIcon} onClick={handleBackButtonClick} />
+        <div>
+        <div>
+      <p className={styles.combo}>
+        {/* {`COMBO: `} */}
+        {combo.map((num, index) => (
+          <React.Fragment key={index}>
+            <span className={index === currentNum ? styles.activeComboNum : styles.inactiveComboNum}>
+              {num}
+            </span>
+            {index < combo.length - 1 && ' - '}
+          </React.Fragment>
+        ))}
+      </p>
+    </div>
+    </div>
+        </div>
       </div>
         : null
         }
@@ -179,13 +239,18 @@ export default function Home() {
       {step === 7 ? <PassedNum setStep={setStep} /> : null}
 
 
-
+        {/* lock top bar, open */}
       <div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={step === 5 ? styles.lockBarOpen : null}>
         <Image src={lockBar} height={600} alt="Lock" />
       </div>
-      <div className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`} id={styles.lockContainer}>
+      {/* main lock */}
+      <div className={`${styles.lock} ${styles.lockContainer} ${step < 2 ? styles.hidden : ''}`}>
           <Image src={lockFull} height={600} alt="Lock" />
+          { (step === 2 || step === 3 || step === 4) && <div className={`${step === 2 || step === 4 ? styles.arrowIndicatorRight : styles.arrowIndicatorLeft}`}>
+            <img src='/rotationArrow.png' alt="Arrow"  className={styles.arrowImage}/>
+          </div>}
       </div>
+      {/* lock face */}
       <div
         className={`${styles.lock} ${step < 2 ? styles.hidden : ''}`}
         id={styles.lockFaceContainer}
@@ -199,20 +264,21 @@ export default function Home() {
         onTouchEnd={step !== 5 ? handleTouchEnd : null}
         style={{ transform: `rotate(${rotation}deg)` }}
       >
-      <Image src={lockFace} height={600} alt="Lock" className={styles.lockFace}/>
-
+        <Image src={lockFace} height={600} alt="Lock" className={styles.lockFace}/>
       </div>
+      {/* current combo number indicator */}
       {step < 5 &&
       <div
         className={`${styles.lock} ${styles.lockIndicatorWrapper} ${step < 2 ? styles.hidden : ''}`}>
       <Image
-      src={lockFaceIndicator}
-      height={600}
-      alt="Lock"
-      className={`${styles.lockFaceIndicator}`}
-      style={{ transform: `rotate(${rotation + (combo[step - 2] * 9)}deg)` }}/>
-    </div>
-}
+        src={lockFaceIndicator}
+        height={600}
+        alt="Lock"
+        className={`${styles.lockFaceIndicator}`}
+        style={{ transform: `rotate(${rotation + (combo[step - 2] * 9)}deg)` }}/>
+      </div>
+      }
+
     </main>
   );
 }

@@ -7,34 +7,36 @@ import title from '../../public/titledLogoNoShield.webp'
 export default function Welcome({ setStep, combo, setCombo }) {
 
   const isValidComboValue = (value) => {
+    if (value === "") {
+      alert(`It looks like you haven't finished setting your combo`);
+      return false;
+    }
     const num = parseInt(value, 10);
     return !isNaN(num) && num >= 0 && num <= 39;
   };
 
   const handleInputChange = (index, value) => {
-    if (isValidComboValue(value) || value === "") { // Allow empty value for backspacing
       // Create a new combo array based on the existing combo
       const newCombo = [...combo];
       newCombo[index] = value;
       setCombo(newCombo);
-    }
+
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    setStep(prevStep => prevStep + 1);
+    if (combo.every(value => isValidComboValue(value))) {
+      setStep(prevStep => prevStep + 1);
+    }
   };
 
   return (
     <div className={styles.welcomeWrapper}>
-      <div className={styles.logoWrapper}>
-        {/* <div className={styles.logo}> */}
+      {/* <div className={styles.logoWrapper}>
           <img src='/parkway.webp'  className={styles.shield} alt="Parkway Logo" />
-          {/* <img src='/titledLogoNoShield.webp'  className={styles.titledLogo} alt="Parkway Title Logo" /> */}
-
-        {/* </div> */}
         <h1 className={styles.title}>LOCK LEARNER</h1>
-      </div>
+      </div> */}
 
 
     <div className={styles.container}>

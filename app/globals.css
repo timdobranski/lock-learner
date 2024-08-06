@@ -42,7 +42,7 @@ input::-webkit-inner-spin-button {
   margin: 1rem 2rem 0rem 2rem;
   border-radius: 15px;
   color: white;
-  padding: 1rem;
+  padding: .5rem .25rem;
   font-size: 1.25rem;
 
 }
@@ -75,7 +75,7 @@ input::-webkit-inner-spin-button {
 }
 @media(max-width: 768px) {
   .infoCard {
-    width: 80vw;
+    width: 90vw;
     min-width: 0;
   }
   #app {

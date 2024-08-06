@@ -48,7 +48,7 @@ export default function Num2({ setStep, combo, setCombo, currentNum }) {
 
       <p>{`Now turn your lock to the left until you reach your second number, ${combo[1]}, twice`}</p>
 
-        <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`Spins to ${combo[1]} Completed:`}</p>
+        <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`Spins Completed:`}</p>
         <p className={timesHitNumber === 1 ? styles.successAnimation : null}>{`${timesHitNumber} / 2`}</p>
 
     </div>

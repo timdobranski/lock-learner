@@ -64,7 +64,7 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
     <div className='infoCard'>
       <h2>1st Number</h2>
         <p>{`Spin to the right until you reach your first number (${combo[0]}) three times`}</p>
-      <p className={animationClass}>{`Spins to ${combo[0]} completed:  ${timesHitNumber} / 3`}</p>
+      <p className={animationClass}>{`Spins completed:  ${timesHitNumber} / 3`}</p>
     </div>
   )
 }
