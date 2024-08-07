@@ -1,0 +1,115 @@
+/* animations for the rotate arrow indicators */
+@keyframes growShrink {
+  0%, 100% {
+    transform: scale(1) translateY(-50%) rotatez(-20deg);
+  }
+  50% {
+    transform: scale(1.2) translateY(-50%) rotatez(-20deg);
+  }
+}
+
+/* Define the keyframes for the grow-shrink animation for rotated elements */
+@keyframes growShrinkRotate {
+  0%, 100% {
+    transform: scale(1) translateY(-50%) rotateY(180deg) rotatez(-20deg);
+  }
+  50% {
+    transform: scale(1.2) translateY(-50%) rotateY(185deg) rotatez(-20deg);
+  }
+}
+
+/* .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+} */
+
+.lock {
+  position: absolute;
+  bottom: -220px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.lockFaceWrapper {
+  position: relative;
+
+  /* border: solid red 2px; */
+}
+
+.lockIndicatorWrapper {
+  z-index: 10;
+    pointer-events: none;
+}
+.lockFaceIndicator {
+
+}
+.lockContainer {
+  border: solid rgb(255, 255, 255) 1px;
+}
+.lockFace {
+
+}
+#lockFaceContainer{
+  z-index: 1;
+}
+.lockBarOpen {
+  transform: translateY(-7%);
+  transition: transform 1.5s ease-in-out;
+}
+.hidden {
+  display: none;
+}
+.swipableAreaIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 310px;
+  height: 310px;
+  border: solid rgb(255, 255, 255) 1px;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Ensures the div doesn't interfere with user interaction */
+  z-index: 10;
+}
+.arrowIndicatorLeft, .arrowIndicatorRight {
+  position: absolute;
+  z-index: 10;
+  top: 40%;
+  right: 20%;
+  animation: growShrink 2s infinite; /* Apply the animation */
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, .8)); /* Add glow effect */
+  pointer-events: none;
+  touch-action: none;
+  /* transform: translateY(-50%); */
+}
+.arrowIndicatorLeft {
+  right: 68%;
+  /* transform: translateY(-50%) rotateY(180deg); */
+  animation: growShrinkRotate 2s infinite; /* Apply the animation with rotation */
+
+}
+
+.arrowImage {
+  height: 100px;
+  width: 80px;
+  margin: 0;
+  padding: 0;
+}
+@media(max-width: 768px) {
+
+}
+
+@media(max-width: 350px) {
+  .arrowIndicatorLeft, .arrowIndicatorRight {
+    top: 40%;
+    right: 25%;
+  }
+  .arrowIndicatorLeft {
+    right: 62%;
+  }
+}

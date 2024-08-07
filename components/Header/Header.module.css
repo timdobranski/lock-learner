@@ -1,0 +1,56 @@
+.logoWrapper {
+  background-color: rgba(0, 107, 149, 0.6);
+  border-bottom: 2px solid rgb(0, 77, 107);
+  width: fit-content;
+  margin: 0 auto;
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  backdrop-filter: blur(3px) brightness(.9) grayscale(1);
+  height: 80px;
+  /* border: solid red 2px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.shield {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  color: red;
+  font-size: 2.5rem;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  /* border: solid red 2px; */
+}
+
+
+
+@media(max-width: 768px) {
+  .shield {
+    height: 50%;
+  }
+  .logoWrapper {
+    background-color: rgba(0, 107, 149, 0.3);
+
+    box-sizing: border-box;
+    transform: none;
+    padding: 0;
+    height: 80px;
+    border-bottom-width: 1px;
+  }
+  .title {
+    width: 60%;
+    font-size: 1.5rem;
+  }
+}
