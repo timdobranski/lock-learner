@@ -1,0 +1,12 @@
+.lockContainer {
+  bottom: 2rem;
+  width: 250px;
+  height: fit-content;
+  /* border: solid rgb(255, 255, 255) 2px; */
+  position: absolute;
+}
+@media (max-width: 350px) {
+  .lockContainer {
+    width: 175px;
+  }
+}

@@ -17,23 +17,72 @@
     transform: scale(1.2) translateY(-50%) rotateY(185deg) rotatez(-20deg);
   }
 }
+.lockWrapper {
+  /* box-sizing: border-box; */
+  border: solid red 2px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+.lockFaceWrapper {
+  /* border: solid orange 2px; */
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 
-/* .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-} */
+}
+.lockFace {
+  /* border: solid yellow 2px; */
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 
-.lock {
+}
+.lockDialWrapper {
+  /* border: solid orange 2px; */
+  position: absolute;
+  top: 16%;
+  left: 8%;
+  width: 80%;
+  height: 78%;
+  pointer-events: auto;
+  border: solid orange 2px;
+  /* z-index: 1; */
+}
+.lockDial {
+  /* border: solid yellow 2px; */
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: solid green 2px;
+  /* z-index: 2; */
+}
+.lockBarWrapper {
+  position: absolute;
+  top: -60%;
+  left: 8%;
+  width: 80%;
+  border: solid green 2px;
+}
+.lockBar {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+/* .lock {
   position: absolute;
   bottom: -220px;
   margin-bottom: 2rem;
   overflow: hidden;
   border-radius: 50%;
-}
+} */
 .lockFaceWrapper {
   position: relative;
 
@@ -79,8 +128,8 @@
 .arrowIndicatorLeft, .arrowIndicatorRight {
   position: absolute;
   z-index: 10;
-  top: 40%;
-  right: 20%;
+  top: 30%;
+  right: -25%;
   animation: growShrink 2s infinite; /* Apply the animation */
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, .8)); /* Add glow effect */
   pointer-events: none;
@@ -88,7 +137,7 @@
   /* transform: translateY(-50%); */
 }
 .arrowIndicatorLeft {
-  right: 68%;
+  right: 10%;
   /* transform: translateY(-50%) rotateY(180deg); */
   animation: growShrinkRotate 2s infinite; /* Apply the animation with rotation */
 
@@ -107,9 +156,9 @@
 @media(max-width: 350px) {
   .arrowIndicatorLeft, .arrowIndicatorRight {
     top: 40%;
-    right: 25%;
+    right: -35%;
   }
   .arrowIndicatorLeft {
-    right: 62%;
+    right: 135%;
   }
 }

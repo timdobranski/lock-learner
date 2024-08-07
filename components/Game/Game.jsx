@@ -12,6 +12,7 @@ import Success from '../Success/Success';
 import Confetti from 'react-confetti';
 import Lock from '../Lock/Lock';
 import ComboBanner from '../ComboBanner/ComboBanner';
+import styles from './Game.module.css';
 
 export default function Game() {
   const [currentLockNum, setCurrentLockNum] = useState(0);
@@ -50,14 +51,16 @@ export default function Game() {
       {step === 7 ? <PassedNum setStep={setStep} /> : null}
 
       {/* the lock component */}
-      <Lock
-        combo={combo}
-        setCombo={setCombo}
-        step={step}
-        setStep={setStep}
-        currentLockNum={currentLockNum}
-        setCurrentLockNum={setCurrentLockNum}
-      />
+      <div className={styles.lockContainer}>
+        <Lock
+          combo={combo}
+          setCombo={setCombo}
+          step={step}
+          setStep={setStep}
+          currentLockNum={currentLockNum}
+          setCurrentLockNum={setCurrentLockNum}
+        />
+      </div>
     </>
 
   );
