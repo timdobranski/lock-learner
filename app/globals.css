@@ -31,6 +31,15 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  /* border: solid red 2px; */
+}
 
 .infoCard {
   font-family: GeoSansLight;

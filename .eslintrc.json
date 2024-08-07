@@ -1,6 +1,7 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "indent": ["warn", 2] // Enforce 2-space indentation
+    "indent": ["warn", 2], // Enforce 2-space indentation
+    "no-unused-vars": ["warn"]
   }
 }
