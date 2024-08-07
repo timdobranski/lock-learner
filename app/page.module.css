@@ -56,123 +56,7 @@
 #lockFaceContainer{
   z-index: 1;
 }
-.logoWrapper {
-  background-color: rgba(0, 107, 149, 0.6);
-  border-bottom: 2px solid rgb(0, 77, 107);
-  width: fit-content;
-  margin: 0 auto;
-  width: 100vw;
-  box-sizing: border-box;
-  margin: 0;
-  backdrop-filter: blur(3px) brightness(.9) grayscale(1);
-  height: 80px;
-  /* border: solid red 2px; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
-.shield {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 70%;
-  margin: 0;
-  padding: 0;
-}
-
-.title {
-  color: red;
-  font-size: 2.5rem;
-  font-weight: 200;
-  margin: 0;
-  padding: 0;
-  -webkit-text-stroke: 1px rgb(255, 255, 255);
-  /* border: solid red 2px; */
-}
-.comboContainer {
-  background-color: rgba(255, 255, 255, 1);
-  border-bottom: 2px solid rgb(0, 77, 107);
-  width: fit-content;
-  margin: 0 auto;
-  width: 100vw;
-  box-sizing: border-box;
-  margin: 0;
-  backdrop-filter: blur(3px) brightness(.9);
-  padding: .5rem 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: rgb(0, 0, 0);
-  height: 50px;
-}
-.comboDisplayWrapper {
-  position: relative;
-}
-#comboContainer:hover {
-  cursor: pointer;
-}
-#comboContainer h2, #comboContainer p {
-  margin: 0;
-  padding: 0;
-}
-
-#comboContainer h2 {
-  text-decoration: underline;
-  font-weight: 100;
-  font-size: 1.25rem;
-}
-
-.combo {
-  font-size: 1.25rem;
-  margin: 0;
-  padding: 0;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-
-/* .combo, .combo * {
-  vertical-align: middle;
-  display: inline-block;
-} */
-.activeComboNum, .inactiveComboNum {
-  height: 20px;
-  width: 20px;
-  display: inline-flex; /* Change to inline-flex to use Flexbox */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  margin: 0 auto;
-  padding: .5rem;
-}
-
-.activeComboNum {
-  color: rgb(255, 255, 255);
-  text-decoration: underline;
-  text-decoration-color: red;
-  background-color: rgb(0, 77, 107);
-  border-radius: 50%;
-}
-.backIcon {
-  position: absolute;
-  left: -4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  min-height: 20px;
-  height: 20px;
-  width: 20px;
-  max-height: 100px;
-  margin: 0;
-  padding: .4rem;
-  border-radius: 50%;
-
-}
-.backIcon:hover {
-  cursor: pointer;
-  background-color: rgb(0, 110, 153);
-  color: rgb(255, 255, 255);
-}
 #lockBarOpen {
   transform: translateY(-7%);
   transition: transform 1.5s ease-in-out;
@@ -211,22 +95,6 @@
     top: 0;
     left: 0;
 
-  }
-  .shield {
-    height: 50%;
-  }
-  .logoWrapper {
-    background-color: rgba(0, 107, 149, 0.3);
-
-    box-sizing: border-box;
-    transform: none;
-    padding: 0;
-    height: 80px;
-    border-bottom-width: 1px;
-  }
-  .title {
-    width: 60%;
-    font-size: 1.5rem;
   }
 }
 

@@ -1,0 +1,81 @@
+.comboContainer {
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 2px solid rgb(0, 77, 107);
+  width: fit-content;
+  margin: 0 auto;
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  backdrop-filter: blur(3px) brightness(.9);
+  padding: .5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  height: 50px;
+}
+.comboDisplayWrapper {
+  position: relative;
+}
+#comboContainer:hover {
+  cursor: pointer;
+}
+#comboContainer h2, #comboContainer p {
+  margin: 0;
+  padding: 0;
+}
+
+#comboContainer h2 {
+  text-decoration: underline;
+  font-weight: 100;
+  font-size: 1.25rem;
+}
+
+.combo {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* .combo, .combo * {
+  vertical-align: middle;
+  display: inline-block;
+} */
+.activeComboNum, .inactiveComboNum {
+  height: 20px;
+  width: 20px;
+  display: inline-flex; /* Change to inline-flex to use Flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin: 0 auto;
+  padding: .5rem;
+}
+
+.activeComboNum {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  text-decoration-color: red;
+  background-color: rgb(0, 77, 107);
+  border-radius: 50%;
+}
+.backIcon {
+  position: absolute;
+  left: -4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  min-height: 20px;
+  height: 20px;
+  width: 20px;
+  max-height: 100px;
+  margin: 0;
+  padding: .4rem;
+  border-radius: 50%;
+
+}
+.backIcon:hover {
+  cursor: pointer;
+  background-color: rgb(0, 110, 153);
+  color: rgb(255, 255, 255);
+}
