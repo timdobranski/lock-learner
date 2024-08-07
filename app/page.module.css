@@ -1,109 +1,36 @@
-/* animations for the rotate arrow indicators */
-@keyframes growShrink {
-  0%, 100% {
-    transform: scale(1) translateY(-50%) rotatez(-20deg);
-  }
-  50% {
-    transform: scale(1.2) translateY(-50%) rotatez(-20deg);
-  }
-}
-
-/* Define the keyframes for the grow-shrink animation for rotated elements */
-@keyframes growShrinkRotate {
-  0%, 100% {
-    transform: scale(1) translateY(-50%) rotateY(180deg) rotatez(-20deg);
-  }
-  50% {
-    transform: scale(1.2) translateY(-50%) rotateY(185deg) rotatez(-20deg);
-  }
-}
-
-.main {
+.pageWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-  /* border: solid red 2px; */
+  justify-content: flex-start;
+  height: 100vh;
+  margin: 1rem;
 }
 
-.lock {
+
+.navButton {
+  background: linear-gradient(to right, rgb(254, 134, 134), rgb(255, 97, 97));
+  margin: 1rem 0;
+  color: rgb(255, 255, 255);
+  color: black;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.8);
+  font-size: 1rem;
+  padding: .5rem 1rem .5rem 1rem;
+  font-family: Future;
+  width: 300px;
+}
+
+.navButton:hover{
+  cursor: pointer;
+}
+.settingsIcon {
   position: absolute;
-  bottom: -220px;
-  margin-bottom: 2rem;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.lockFaceWrapper {
-  position: relative;
-
-  /* border: solid red 2px; */
-}
-.lockFace {
-  /* border: solid red 2px; */
-}
-.lockIndicatorWrapper {
-  z-index: 10;
-    pointer-events: none;
-}
-.lockFaceIndicator {
-
-}
-.lockContainer {
-
-}
-#lockFaceContainer{
-  z-index: 1;
-}
-
-#lockBarOpen {
-  transform: translateY(-7%);
-  transition: transform 1.5s ease-in-out;
-}
-.hidden {
-  display: none;
-}
-.arrowIndicatorLeft, .arrowIndicatorRight {
-  position: absolute;
-  z-index: 10;
-  top: 40%;
-  right: 20%;
-  animation: growShrink 2s infinite; /* Apply the animation */
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, .8)); /* Add glow effect */
-  pointer-events: none;
-  touch-action: none;
-  /* transform: translateY(-50%); */
-}
-.arrowIndicatorLeft {
-  right: 68%;
-  /* transform: translateY(-50%) rotateY(180deg); */
-  animation: growShrinkRotate 2s infinite; /* Apply the animation with rotation */
-
-}
-
-.arrowImage {
-  height: 100px;
-  width: 80px;
-  margin: 0;
-  padding: 0;
-}
-@media(max-width: 768px) {
-  .welcomeWrapper {
-    position: relative;
-    transform: none;
-    top: 0;
-    left: 0;
-
-  }
-}
-
-@media(max-width: 350px) {
-  .arrowIndicatorLeft, .arrowIndicatorRight {
-    top: 40%;
-    right: 25%;
-  }
-  .arrowIndicatorLeft {
-    right: 62%;
-  }
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }

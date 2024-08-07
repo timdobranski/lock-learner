@@ -52,6 +52,7 @@ export default function Game() {
       {/* the lock component */}
       <Lock
         combo={combo}
+        setCombo={setCombo}
         step={step}
         setStep={setStep}
         currentLockNum={currentLockNum}

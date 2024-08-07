@@ -14,6 +14,9 @@
   justify-content: center;
   align-items: center;
 }
+.shield:hover {
+  cursor: pointer;
+}
 .shield {
   position: absolute;
   left: 1rem;
@@ -36,12 +39,13 @@
 
 
 
+
 @media(max-width: 768px) {
   .shield {
     height: 50%;
   }
   .logoWrapper {
-    background-color: rgba(0, 107, 149, 0.3);
+    background-color: rgba(0, 131, 183, 0.7);
 
     box-sizing: border-box;
     transform: none;

@@ -6,7 +6,7 @@ import lockFull from '../../public/lock-full-centered-open.png';
 import lockFace from '../../public/lock-face-centered.png';
 import lockFaceIndicator from '../../public/lock-face-centered-indicator.png';
 
-export default function Lock({ combo, step, setStep, currentLockNum, setCurrentLockNum }) {
+export default function Lock({ combo, setCombo, step, setStep, currentLockNum, setCurrentLockNum }) {
   const [rotation, setRotation] = useState(0);
   const [lastPosition, setLastPosition] = useState(null);
   const lockFaceRef = useRef(null);

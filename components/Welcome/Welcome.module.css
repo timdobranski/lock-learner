@@ -1,13 +1,25 @@
 .container {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 1rem;
-  max-height: 200px;
+  /* max-height: 200px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: solid red 2px; */
 }
 .welcomeWrapper {
   /* position: absolute; */
   width: 100vw;
   /* left: 50%;
   transform: translate(-50%, 0); */
+}
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
 }
 .formContainer{
   width: 100vw;
