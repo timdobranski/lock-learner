@@ -45,7 +45,9 @@ input::-webkit-inner-spin-button {
   font-family: GeoSansLight;
   width: 50vw;
   min-width: 500px;
-  background: rgba(0, 0, 0, 1);
+  /* background: rgba(0, 0, 0, 1); */
+  background: rgba(0, 0, 0, .6);
+  backdrop-filter: blur(3px) ;
   position: relative;
   z-index: 2;
   margin: 1rem 2rem 0rem 2rem;
