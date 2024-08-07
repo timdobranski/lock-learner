@@ -25,11 +25,9 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
 
   const handleMouseDown = (event) => {
     if (event.type === 'mousedown') {
-      console.log('inside handle mouse down')
       event.preventDefault();
     }
     const rect = lockFaceRef.current.getBoundingClientRect();
-    console.log('rect: ', rect);
     const centerX = rect.left + rect.width / 2 + offsetX;
     const centerY = rect.top + rect.height / 2 + offsetY;
 
@@ -38,13 +36,13 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
       Math.pow(event.clientY - centerY, 2)
     );
 
-    const maxAcceptableDistance = rect.width / 4.5; // 1/3 of half the width
+    const maxAcceptableDistance = Math.max(rect.width, rect.height) / 2; // Half the width or height
 
     if (distanceToCenter <= maxAcceptableDistance) {
-
       setLastPosition({ x: event.clientX, y: event.clientY });
     }
   };
+
   const handleTouchStart = (event) => {
     event.preventDefault();
     const touch = event.touches[0]; // Get the first touch
@@ -64,7 +62,8 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
       setLastPosition({ x: event.clientX, y: event.clientY });
     }
   };
-  const handleTouchMove = () => {
+
+  const handleTouchMove = (event) => {
     event.preventDefault();
     const touch = event.touches[0]; // Get the first touch
     handleMouseMove(touch); // Reuse the mouse move logic
@@ -73,9 +72,11 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
   const handleMouseUp = () => {
     setLastPosition(null);
   };
+
   const handleTouchEnd = () => {
     handleMouseUp(); // Reuse the mouse up logic
   };
+
 
   useEffect (() => {
     console.log('step: ', step);
@@ -141,7 +142,7 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
     };
   }, []);
   useEffect(() => {
-    console.log('rotation changed: ', rotation);
+    // console.log('rotation changed: ', rotation);
   // Normalize the rotation to be between 0 and 360
     const effectiveRotation = (rotation - 4.5) % 360;
 
@@ -156,7 +157,9 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
 
   return (
     <div className={styles.lockWrapper}>
-    {/* <> */}
+      {(step === 2 || step === 3 || step === 4) && <div className={styles.swipableAreaIndicator}>
+      </div>}
+      {/* <> */}
       {/* lock top bar, open */}
       <div className={`${styles.lockBarWrapper} ${step < 2 ? styles.hidden : ''} ${step === 5 ? styles.lockBarOpen : ''}`}>
         <img src={'/lock-images/lock-bar.png'} alt="Lock" className={styles.lockBar}/>
@@ -186,21 +189,19 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
         style={{ transform: `rotate(${rotation}deg)` }}
       >
         <img src={'/lock-images/lock-dial.png'} alt="Lock" className={styles.lockDial} />
-        <div className={styles.swipableAreaIndicator}>
-        </div>
       </div>
       {/* current combo number indicator */}
-      {/* {step < 5 && (
-        <div className={`${styles.lock} ${styles.lockIndicatorWrapper} ${step < 2 ? styles.hidden : ''}`}>
-          <Image
-            src={lockFaceIndicator}
-            height={600}
+      {step < 5 && (
+        <div
+          className={` ${styles.lockIndicatorWrapper} ${step < 2 ? styles.hidden : ''}`}
+          style={{ transform: `rotate(${rotation + (combo[step - 2] * 9)}deg)` }}>
+          <img
+            src={'/lock-images/number-indicator2.png'}
             alt="Lock"
-            className={`${styles.lockFaceIndicator}`}
-            style={{ transform: `rotate(${rotation + (combo[step - 2] * 9)}deg)` }}
+            className={`${styles.lockDialIndicator}`}
           />
         </div>
-      )} */}
+      )}
     </div>
     // </>
   );

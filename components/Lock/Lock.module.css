@@ -19,11 +19,12 @@
 }
 .lockWrapper {
   /* box-sizing: border-box; */
-  border: solid red 2px;
+  /* border: solid red 2px; */
   position: relative;
   height: 100%;
   width: 100%;
   pointer-events: none;
+  overflow: visible;
 }
 .lockFaceWrapper {
   /* border: solid orange 2px; */
@@ -45,12 +46,16 @@
 .lockDialWrapper {
   /* border: solid orange 2px; */
   position: absolute;
-  top: 16%;
-  left: 8%;
+  top: -32%;
+  left: -40.5%;
   width: 80%;
   height: 78%;
+  padding: 50%;
   pointer-events: auto;
-  border: solid orange 2px;
+  /* border: solid rgb(255, 255, 255) 2px; */
+  /* background-color: rgba(0, 0, 0, .5); */
+  border-radius: 50%;
+  transform-origin: center;
   /* z-index: 1; */
 }
 .lockDial {
@@ -59,7 +64,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  border: solid green 2px;
+  /* border: solid green 2px; */
   /* z-index: 2; */
 }
 .lockBarWrapper {
@@ -67,13 +72,33 @@
   top: -60%;
   left: 8%;
   width: 80%;
-  border: solid green 2px;
+  /* border: solid green 2px; */
 }
 .lockBar {
   height: 100%;
   width: 100%;
 }
-
+.lockIndicatorWrapper {
+  z-index: 20;
+  pointer-events: none;
+  /* outline: solid red 1px; */
+  position: absolute;
+  height: 77%;
+  width: 79.5%;
+  top: 18%;
+  left: 10%;
+  transform-origin: center;
+}
+.lockDialIndicator {
+  position: absolute;
+  /* border: solid green 2px; */
+  width: 50px;
+  height: 60px;
+  z-index: 20;
+  top: -15%;
+  left: calc(50% - 25px);
+  /* border: solid yellow 2px; */
+}
 
 
 /* .lock {
@@ -89,24 +114,11 @@
   /* border: solid red 2px; */
 }
 
-.lockIndicatorWrapper {
-  z-index: 10;
-    pointer-events: none;
-}
-.lockFaceIndicator {
-
-}
-.lockContainer {
-  /* border: solid rgb(255, 255, 255) 1px; */
-}
-.lockFace {
-
-}
 #lockFaceContainer{
   z-index: 1;
 }
 .lockBarOpen {
-  transform: translateY(-7%);
+  transform: translateY(-20%);
   transition: transform 1.5s ease-in-out;
 }
 .hidden {
@@ -116,14 +128,15 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300px;
-  height: 300px;
-  /* border: dashed rgb(203, 203, 203) 1px;
-  background-color: rgba(0, 0, 0, .4); */
+  width: 450px;
+  height: 450px;
+  /* border: dashed rgb(203, 203, 203) 1px; */
+  background-color: rgba(0, 0, 0, .5);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none; /* Ensures the div doesn't interfere with user interaction */
   z-index: 0;
+  border: dashed white 1px;
 }
 .arrowIndicatorLeft, .arrowIndicatorRight {
   position: absolute;
@@ -137,7 +150,7 @@
   /* transform: translateY(-50%); */
 }
 .arrowIndicatorLeft {
-  right: 10%;
+  right: 95%;
   /* transform: translateY(-50%) rotateY(180deg); */
   animation: growShrinkRotate 2s infinite; /* Apply the animation with rotation */
 
