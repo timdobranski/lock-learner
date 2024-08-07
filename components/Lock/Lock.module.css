@@ -48,7 +48,7 @@
 
 }
 .lockContainer {
-  border: solid rgb(255, 255, 255) 1px;
+  /* border: solid rgb(255, 255, 255) 1px; */
 }
 .lockFace {
 
@@ -67,14 +67,14 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 310px;
-  height: 310px;
-  border: solid rgb(255, 255, 255) 1px;
-  background-color: rgba(0, 0, 0, .4);
+  width: 300px;
+  height: 300px;
+  /* border: dashed rgb(203, 203, 203) 1px;
+  background-color: rgba(0, 0, 0, .4); */
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none; /* Ensures the div doesn't interfere with user interaction */
-  z-index: 10;
+  z-index: 0;
 }
 .arrowIndicatorLeft, .arrowIndicatorRight {
   position: absolute;
