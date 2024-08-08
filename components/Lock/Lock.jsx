@@ -51,7 +51,7 @@ export default function Lock({ combo, setCombo, step, setStep, currentLockNum, s
 
   const handleMouseMove = (event) => {
     if (event.type === 'mousemove') {
-      event.preventDefault();
+      // event.preventDefault();
     }
 
     if (lastPosition) {

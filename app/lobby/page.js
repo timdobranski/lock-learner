@@ -2,6 +2,7 @@
 
 import styles from './page.module.css';
 import React, { useState, useEffect } from 'react';
+import DOMPurify from 'dompurify';
 
 
 export default function Lobby() {
@@ -14,8 +15,9 @@ export default function Lobby() {
     // Retrieve username from localStorage if it exists
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
-      setSavedUsername(storedUsername);
+      setSavedUsername(DOMPurify.sanitize(storedUsername));
     }
+
   }, []);
 
   const handleChange = (event) => {
@@ -24,8 +26,9 @@ export default function Lobby() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem('username', username);
-    setSavedUsername(username);
+    const safeUsername = DOMPurify.sanitize(username);
+    localStorage.setItem('username', safeUsername);
+    setSavedUsername(safeUsername);
   }
 
   const resetUsername = () => {

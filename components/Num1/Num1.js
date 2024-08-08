@@ -31,6 +31,7 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
 
 
   useEffect(() => {
+    console.log('inside timeshitnumber useEffect')
     if (timesHitNumber === 1 || timesHitNumber === 2) {
       setAnimationClass(styles.successAnimation);
 

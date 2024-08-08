@@ -18,9 +18,10 @@ display: block;
 background-color: rgba(0, 0, 0, 0.5);
 color: white;
 border: none;
-/* border: solid blue 2px; */
+border: dashed rgb(255, 255, 255) 1px;
 margin: .5rem;
 width: 400px;
+max-width: 90%;
 font-size: 1.5rem;
 /* font-family: Future; */
 padding: .25rem;

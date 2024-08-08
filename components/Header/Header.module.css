@@ -1,12 +1,14 @@
 .logoWrapper {
+  background-color: rgba(0, 150, 210, 0.631);
   background-color: rgba(0, 107, 149, 0.6);
+
   border-bottom: 2px solid rgb(0, 77, 107);
   width: fit-content;
   margin: 0 auto;
   width: 100vw;
   box-sizing: border-box;
   margin: 0;
-  backdrop-filter: blur(3px) brightness(.9) grayscale(1);
+  backdrop-filter: blur(3px) grayscale(1);
   height: 80px;
   /* border: solid red 2px; */
   display: flex;
@@ -45,7 +47,8 @@
     height: 50%;
   }
   .logoWrapper {
-    background-color: rgba(0, 131, 183, 0.7);
+    background-color: rgba(0, 107, 149, 0.6);
+    backdrop-filter: blur(3px) grayscale(0);
 
     box-sizing: border-box;
     transform: none;
