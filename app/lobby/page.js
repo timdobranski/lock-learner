@@ -3,12 +3,16 @@
 import styles from './page.module.css';
 import React, { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/navigation';
 
 
 export default function Lobby() {
   const [username, setUsername] = useState('');
   const [savedUsername, setSavedUsername] = useState('');
   const [matchLink, setMatchLink] = useState('');
+  const router = useRouter();
 
 
   useEffect(() => {
@@ -39,6 +43,7 @@ export default function Lobby() {
   return (
     <div className={styles.lobbyContainer}>
       <div className='infoCard'>
+        <FontAwesomeIcon icon={faChevronLeft} className={styles.backIcon} onClick={() => router.push('/')} />
         <h1>LOBBY</h1>
 
         { savedUsername ?

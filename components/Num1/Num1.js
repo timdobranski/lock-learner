@@ -31,7 +31,6 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
 
 
   useEffect(() => {
-    console.log('inside timeshitnumber useEffect')
     if (timesHitNumber === 1 || timesHitNumber === 2) {
       setAnimationClass(styles.successAnimation);
 
@@ -51,12 +50,11 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
     } else {
       console.log('Vibration API not supported');
     }
-        // If all steps complete
-        if (timesHitNumber === 3) {
-          setTimesHitNumber(0);
-          setStep(prevStep => prevStep + 1);
-        }
-        console.log('times hit number: ', timesHitNumber)
+    // If all steps complete
+    if (timesHitNumber === 3) {
+      setTimesHitNumber(0);
+      setStep(prevStep => prevStep + 1);
+    }
   }, [timesHitNumber])
 
 
@@ -64,7 +62,7 @@ export default function Num1({ setStep, combo, setCombo, currentNum }) {
   return (
     <div className='infoCard'>
       <h2>1st Number</h2>
-        <p>{`Spin to the right until you reach your first number (${combo[0]}) three times`}</p>
+      <p>{`Spin to the right until you reach your first number (${combo[0]}) three times`}</p>
       <p className={animationClass}>{`Spins completed:  ${timesHitNumber} / 3`}</p>
     </div>
   )
