@@ -48,6 +48,8 @@
     max-height: 50px;
     max-width: 50px;
     position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .logoWrapper {
     background-color: rgba(0, 107, 149, 0.6);
