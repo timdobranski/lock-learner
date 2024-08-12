@@ -47,6 +47,7 @@
     height: 60%;
     max-height: 50px;
     max-width: 50px;
+    position: relative;
   }
   .logoWrapper {
     background-color: rgba(0, 107, 149, 0.6);
