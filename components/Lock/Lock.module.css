@@ -100,7 +100,7 @@
 }
 @media(max-width: 768px) {
   .lock {
-    bottom: -100px;
+    bottom: -150px;
 
     margin-bottom: 0;
   }
