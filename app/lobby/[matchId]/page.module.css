@@ -1,0 +1,30 @@
+
+.playerWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: .5rem 0;
+}
+.playerNumberLabel {
+width: 20%;
+/* border: solid red 2px; */
+}
+.playerName {
+  /* border: solid red 2px; */
+  width: 80%;
+  max-width: 400px;
+}
+.playerReady, .playerNotReady {
+  /* border: solid red 2px; */
+  width: 20%;
+}
+
+.playerReady {
+  color: rgb(0, 255, 85);
+}
+.playerNotReady {
+  color: red;
+}

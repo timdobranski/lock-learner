@@ -80,7 +80,7 @@ input::-webkit-inner-spin-button {
   margin: 1rem;
   padding: 0;
 }
-.redButton, .blueButton {
+.redButton, .blueButton, .greenButton {
   background: linear-gradient(to right, rgb(254, 134, 134), rgb(255, 97, 97));
   /* background-color: rgb(0, 138, 198);
   background-color: rgb(255, 106, 106); */
@@ -100,10 +100,13 @@ input::-webkit-inner-spin-button {
 
 }
 .blueButton {
-  background: linear-gradient(to right, rgb(115, 178, 241), rgb(246, 169, 184));
+  background: linear-gradient(to right, rgb(0, 170, 238), rgb(0, 115, 181));
 }
-.redButton:hover, .blueButton:hover {
+.redButton:hover, .blueButton:hover, .greenButton:hover {
   cursor: pointer;
+}
+.greenButton {
+  background: linear-gradient(to right, rgb(0, 255, 85), rgb(0, 170, 57));
 }
 
 

@@ -10,6 +10,32 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 export default function Home() {
   const router = useRouter();
 
+  const generateLink = async () => {
+
+    try {
+      // Use the environment variable for the server's URL
+      const serverUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/create-match`;
+      console.log('serverUrl:', serverUrl);
+      // Send POST request to the server to create a match
+      const response = await fetch(`${serverUrl}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        alert(data.error);
+      } else {
+        router.push(`/lobby/${data.matchId}`)
+      }
+    } catch (error) {
+      console.error('Error creating match:', error);
+      alert('Failed to create match. Please try again.');
+    }
+  };
 
 
   return (
@@ -20,7 +46,12 @@ export default function Home() {
       </div>
 
       <button className={styles.navButton} onClick={() => router.push('/practice')}>PRACTICE</button>
-      <button className={styles.navButton} onClick={() => alert('Challenge mode coming soon. Invite a friend and race them with a random combination!')}>CHALLENGE</button>
+      <button className={styles.navButton} onClick={generateLink}>CHALLENGE</button>
+
+
+
+
+
       {/* <FontAwesomeIcon icon={faGear} className={styles.settingsIcon} onClick={() => router.push('/settings')} /> */}
     </div>
   )
