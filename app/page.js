@@ -33,7 +33,7 @@ export default function Home() {
       }
     } catch (error) {
       console.error('Error creating match:', error);
-      alert('Failed to create match. Please try again.');
+      alert('Multiplayer is coming soon!');
     }
   };
 

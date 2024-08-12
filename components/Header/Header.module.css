@@ -45,7 +45,8 @@
 @media(max-width: 768px) {
   .shield {
     height: 60%;
-
+    max-height: 50px;
+    max-width: 50px;
   }
   .logoWrapper {
     background-color: rgba(0, 107, 149, 0.6);
