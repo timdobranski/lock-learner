@@ -1,7 +1,6 @@
 .logoWrapper {
-  background-color: rgba(0, 150, 210, 0.631);
+  /* background-color: rgba(0, 150, 210, 0.631); */
   background-color: rgba(0, 107, 149, 0.6);
-
   border-bottom: 2px solid rgb(0, 77, 107);
   width: fit-content;
   margin: 0 auto;
@@ -15,10 +14,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
 }
-.shield:hover {
-  cursor: pointer;
-}
+
 .shield {
   position: absolute;
   left: 1rem;
@@ -27,8 +25,12 @@
   height: 70%;
   margin: 0;
   padding: 0;
+  max-height: 50px;
+  max-width: 50px;
 }
-
+.shield:hover {
+  cursor: pointer;
+}
 .title {
   color: red;
   font-size: 2.5rem;
@@ -43,14 +45,6 @@
 
 
 @media(max-width: 768px) {
-  .shield {
-    height: 60%;
-    max-height: 50px;
-    max-width: 50px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
   .logoWrapper {
     background-color: rgba(0, 107, 149, 0.6);
     backdrop-filter: blur(3px) grayscale(0);
@@ -60,7 +54,17 @@
     padding: 0;
     height: 70px;
     border-bottom-width: 1px;
+    position: relative;
   }
+  .shield {
+    height: 60%;
+    max-height: 50px;
+    max-width: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .title {
     width: 100%;
     padding-left: 2.75rem;
@@ -69,20 +73,16 @@
 }
 
 @media(max-width: 375px) {
+  .logoWrapper {
+    height: 50px;
+
+  }
   .shield {
     height: 60%;
     max-height: 45px;
     max-width: 45px;
   }
-  .logoWrapper {
-    background-color: rgba(0, 107, 149, 0.6);
-    backdrop-filter: blur(3px) grayscale(0);
-    box-sizing: border-box;
-    transform: none;
-    padding: 0;
-    height: 50px;
-    border-bottom-width: 1px;
-  }
+
   .title {
     /* border: solid red 1px; */
     font-size: 1.25rem;
