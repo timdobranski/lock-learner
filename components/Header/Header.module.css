@@ -14,7 +14,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
+  position: relative;
 }
 
 .shield {
@@ -40,8 +40,6 @@
   -webkit-text-stroke: 1px rgb(255, 255, 255);
   /* border: solid red 2px; */
 }
-
-
 
 
 @media(max-width: 768px) {
