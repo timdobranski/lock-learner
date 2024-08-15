@@ -28,3 +28,41 @@ width: 20%;
 .playerNotReady {
   color: red;
 }
+.optionsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.linkCopyConfirm {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  color: white;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .25rem .5rem;
+  pointer-events: none;
+}
+
+.linkCopyConfirm.show {
+  opacity: 1;
+  color: white;
+  /* border: solid red 2px; */
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(0, 111, 185);
+  pointer-events: none;
+}
+
+@media(max-width: 768px) {
+  .playerName {
+    width: 35%;
+  }
+  .playerReady, .playerNotReady {
+    width: 35%;
+  }
+}

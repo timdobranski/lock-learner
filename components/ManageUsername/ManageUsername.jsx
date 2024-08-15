@@ -30,6 +30,10 @@ export default function ManageUsername({ username, setUsername, savedUsername, s
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
       setSavedUsername(DOMPurify.sanitize(storedUsername));
+    } else {
+      const randomId = Math.floor(1000 + Math.random() * 900000); // Generates a number with 4-6 digits
+      const randomUsername = `Player${randomId}`;
+      setSavedUsername(randomUsername);
     }
   }, [])
 

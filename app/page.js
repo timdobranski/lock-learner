@@ -48,10 +48,6 @@ export default function Home() {
       <button className={styles.navButton} onClick={() => router.push('/practice')}>PRACTICE</button>
       <button className={styles.navButton} onClick={generateLink}>CHALLENGE</button>
 
-
-
-
-
       {/* <FontAwesomeIcon icon={faGear} className={styles.settingsIcon} onClick={() => router.push('/settings')} /> */}
     </div>
   )
